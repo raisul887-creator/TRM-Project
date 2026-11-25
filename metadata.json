@@ -1,0 +1,6 @@
+{
+  "name": "The 2000s Pitch: European Football Archive",
+  "description": "An interactive European football trivia archive covering the UEFA Champions League, Premier League, La Liga, Serie A, Bundesliga, and Ligue 1 from 2000 to the present.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,3340 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THE 2000s PITCH: ARSIP SEPAK BOLA EROPA</title>
+    <meta
+      name="description"
+      content="Arsip trivia sepak bola Eropa interaktif yang mencakup Liga Champions UEFA, Premier League, La Liga, Serie A, Bundesliga, dan Ligue 1 dari tahun 2000 hingga sekarang."
+    />
+    <meta property="og:title" content="THE 2000s PITCH: ARSIP SEPAK BOLA EROPA" />
+    <meta
+      property="og:description"
+      content="Uji pengetahuan sepak bola Eropa abad ke-21 di enam kompetisi elite dengan batas waktu 15 detik, bantuan VAR, dan pengali skor beruntun."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg-primary: #0b0e11;
+        --bg-surface: #14191f;
+        --bg-surface-hover: #1a212a;
+        --bg-surface-deep: #0f1318;
+        --border-crisp: #262f3a;
+        --border-hover: #3c4a5c;
+        --accent-gold: #d4af37;
+        --accent-gold-dim: rgba(212, 175, 55, 0.14);
+        --accent-emerald: #00e676;
+        --accent-emerald-dim: rgba(0, 230, 118, 0.11);
+        --accent-crimson: #ff3b30;
+        --accent-crimson-dim: rgba(255, 59, 48, 0.12);
+        --text-primary: #f4f6f8;
+        --text-secondary: #c8d2de;
+        --text-muted: #8a99ad;
+
+        --font-display: 'Barlow Condensed', sans-serif;
+        --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: 'JetBrains Mono', monospace;
+
+        --ease-sharp: cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: var(--font-body);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.55;
+        letter-spacing: 0.01em;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* Subtle stadium floodlight vignette & architectural pitch blueprint lines */
+      .pitch-backdrop {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background:
+          radial-gradient(ellipse 80% 45% at 50% -10%, rgba(212, 175, 55, 0.065), transparent 70%),
+          linear-gradient(180deg, rgba(20, 25, 31, 0.35) 0%, rgba(11, 14, 17, 0) 35%);
+      }
+
+      .pitch-lines-svg {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.055;
+      }
+
+      /* Subtle matchday programme grain texture */
+      .grain-overlay {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.032;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+      }
+
+      .app-shell {
+        position: relative;
+        z-index: 2;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Focus accessibility */
+      :focus-visible {
+        outline: 2px solid var(--accent-gold);
+        outline-offset: 2px;
+      }
+
+      .tabular {
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* ================= TOP BROADCAST MASTHEAD ================= */
+      .masthead {
+        border-bottom: 1px solid var(--border-crisp);
+        background-color: rgba(11, 14, 17, 0.92);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+      }
+
+      .masthead-inner {
+        max-width: 1380px;
+        margin: 0 auto;
+        padding: 0 32px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand-lockup {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: var(--text-primary);
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .brand-emblem {
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .brand-title {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.55rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        line-height: 1;
+        color: var(--text-primary);
+      }
+
+      .brand-title span {
+        color: var(--accent-gold);
+      }
+
+      .masthead-meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        white-space: nowrap;
+      }
+
+      .meta-sep {
+        color: var(--border-hover);
+      }
+
+      .masthead-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+
+      .hdr-btn {
+        height: 38px;
+        padding: 0 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-crisp);
+        border-radius: 2px;
+        color: var(--text-secondary);
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+        white-space: nowrap;
+        transition:
+          border-color 150ms var(--ease-sharp),
+          color 150ms var(--ease-sharp),
+          background-color 150ms var(--ease-sharp);
+      }
+
+      .hdr-btn:hover {
+        border-color: var(--accent-gold);
+        color: var(--text-primary);
+        background-color: var(--bg-surface-hover);
+      }
+
+      .hdr-btn[aria-pressed='true'] {
+        color: var(--text-muted);
+      }
+
+      .hdr-btn svg {
+        width: 15px;
+        height: 15px;
+        flex-shrink: 0;
+      }
+
+      /* ================= MAIN ASYMMETRIC SPLIT LAYOUT ================= */
+      .main-grid {
+        max-width: 1380px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 28px 32px 48px;
+        display: grid;
+        grid-template-columns: 368px minmax(0, 1fr);
+        gap: 28px;
+        align-items: start;
+        flex: 1;
+      }
+
+      /* ================= LEFT RAIL: MATCHDAY TELEMETRY ================= */
+      .telemetry-rail {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .panel {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-crisp);
+        border-radius: 2px;
+      }
+
+      .panel-header {
+        padding: 13px 18px;
+        border-bottom: 1px solid var(--border-crisp);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .panel-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 0.98rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+      }
+
+      .panel-sub {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-muted);
+      }
+
+      /* Scoreboard Grid */
+      .scoreboard-body {
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .score-primary-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      .score-cell {
+        padding: 12px 14px;
+        background-color: var(--bg-surface-deep);
+        border: 1px solid var(--border-crisp);
+        border-radius: 2px;
+      }
+
+      .score-label {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .score-value {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 2.35rem;
+        line-height: 0.95;
+        letter-spacing: 0.02em;
+        color: var(--text-primary);
+      }
+
+      .score-value.gold {
+        color: var(--accent-gold);
+      }
+
+      .score-value.emerald {
+        color: var(--accent-emerald);
+      }
+
+      .record-tag {
+        font-family: var(--font-mono);
+        font-size: 0.64rem;
+        font-weight: 700;
+        color: var(--accent-gold);
+        letter-spacing: 0.05em;
+      }
+
+      /* Streak & Multiplier Engine */
+      .streak-block {
+        padding-top: 14px;
+        border-top: 1px solid var(--border-crisp);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .streak-top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .streak-meta {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .streak-meta strong {
+        color: var(--text-primary);
+        font-weight: 700;
+      }
+
+      .multiplier-readout {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.35rem;
+        line-height: 1;
+        letter-spacing: 0.04em;
+        color: var(--text-secondary);
+        transition: color 180ms var(--ease-sharp);
+      }
+
+      .multiplier-readout.tier-2 {
+        color: var(--accent-gold);
+      }
+
+      .multiplier-readout.tier-3 {
+        color: var(--accent-emerald);
+      }
+
+      .multiplier-rail {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+      }
+
+      .mult-seg {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .mult-bar {
+        height: 4px;
+        background-color: #212933;
+        transition: background-color 180ms var(--ease-sharp);
+      }
+
+      .mult-seg.active-1 .mult-bar {
+        background-color: var(--text-secondary);
+      }
+
+      .mult-seg.active-2 .mult-bar {
+        background-color: var(--accent-gold);
+      }
+
+      .mult-seg.active-3 .mult-bar {
+        background-color: var(--accent-emerald);
+      }
+
+      .mult-caption {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--text-muted);
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .mult-seg.active-2 .mult-caption,
+      .mult-seg.active-3 .mult-caption {
+        color: var(--text-secondary);
+      }
+
+      /* Match Progress Strip inside Scoreboard */
+      .telemetry-foot {
+        padding-top: 14px;
+        border-top: 1px solid var(--border-crisp);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        color: var(--text-muted);
+      }
+
+      .telemetry-foot strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      /* Lifelines Bench */
+      .lifelines-grid {
+        padding: 14px 18px 18px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .lifeline-btn {
+        min-height: 74px;
+        padding: 12px;
+        background-color: var(--bg-surface-deep);
+        border: 1px solid var(--border-crisp);
+        border-radius: 2px;
+        color: var(--text-primary);
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 8px;
+        transition:
+          border-color 150ms var(--ease-sharp),
+          transform 150ms var(--ease-sharp),
+          background-color 150ms var(--ease-sharp),
+          opacity 150ms var(--ease-sharp);
+      }
+
+      .lifeline-btn:hover:not(:disabled) {
+        border-color: var(--accent-gold);
+        background-color: var(--bg-surface-hover);
+        transform: translateY(-1px);
+      }
+
+      .lifeline-btn:disabled {
+        opacity: 0.42;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .lifeline-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+      }
+
+      .lifeline-icon {
+        width: 18px;
+        height: 18px;
+        color: var(--accent-gold);
+      }
+
+      .lifeline-btn:disabled .lifeline-icon {
+        color: var(--text-muted);
+      }
+
+      .lifeline-status {
+        font-family: var(--font-mono);
+        font-size: 0.64rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--accent-emerald);
+      }
+
+      .lifeline-btn:disabled .lifeline-status {
+        color: var(--text-muted);
+      }
+
+      .lifeline-name {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        line-height: 1.1;
+      }
+
+      .lifeline-hint {
+        font-family: var(--font-mono);
+        font-size: 0.66rem;
+        color: var(--text-muted);
+      }
+
+      /* Competition Filter List */
+      .filter-list {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .filter-btn {
+        width: 100%;
+        min-height: 44px;
+        padding: 9px 12px;
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: 2px;
+        color: var(--text-secondary);
+        font-family: var(--font-body);
+        font-size: 0.88rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        text-align: left;
+        transition:
+          background-color 140ms var(--ease-sharp),
+          border-color 140ms var(--ease-sharp),
+          color 140ms var(--ease-sharp),
+          transform 140ms var(--ease-sharp);
+      }
+
+      .filter-btn:hover {
+        background-color: var(--bg-surface-hover);
+        border-color: var(--border-crisp);
+        color: var(--text-primary);
+        transform: translateX(3px);
+      }
+
+      .filter-btn.active {
+        background-color: var(--accent-gold-dim);
+        border-color: var(--accent-gold);
+        color: var(--text-primary);
+      }
+
+      .filter-btn-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .league-crest {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+      }
+
+      .filter-label {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .filter-count {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        flex-shrink: 0;
+      }
+
+      .filter-btn.active .filter-count {
+        color: var(--accent-gold);
+        font-weight: 700;
+      }
+
+      /* ================= RIGHT STAGE: ACTIVE TRIVIA TERMINAL ================= */
+      .terminal-stage {
+        background-color: var(--bg-surface);
+        border: 1px solid var(--border-crisp);
+        border-top: 2px solid var(--accent-gold);
+        border-radius: 2px;
+        min-height: 620px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .view-section {
+        padding: 32px 36px 36px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      /* ---- PRE-MATCH BRIEFING (READY) ---- */
+      .briefing-top-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border-crisp);
+      }
+
+      .briefing-top-meta .gold-text {
+        color: var(--accent-gold);
+        font-weight: 600;
+      }
+
+      .briefing-hero {
+        padding: 32px 0 28px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 28px;
+        border-bottom: 1px solid var(--border-crisp);
+      }
+
+      .briefing-copy {
+        max-width: 600px;
+      }
+
+      .briefing-kicker {
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+        color: var(--accent-gold);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      .briefing-headline {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: clamp(2.4rem, 3.8vw, 3.35rem);
+        line-height: 0.96;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--text-primary);
+        text-wrap: balance;
+        margin-bottom: 14px;
+      }
+
+      .briefing-desc {
+        font-size: 0.98rem;
+        color: var(--text-secondary);
+        line-height: 1.65;
+        max-width: 58ch;
+      }
+
+      .briefing-emblem-box {
+        width: 96px;
+        height: 96px;
+        flex-shrink: 0;
+        background-color: var(--bg-surface-deep);
+        border: 1px solid var(--border-crisp);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      }
+
+      .briefing-emblem-box svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .briefing-rules {
+        padding: 24px 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        border-bottom: 1px solid var(--border-crisp);
+      }
+
+      .rule-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .rule-figure {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.65rem;
+        line-height: 1;
+        color: var(--text-primary);
+        letter-spacing: 0.02em;
+      }
+
+      .rule-figure span {
+        color: var(--accent-gold);
+      }
+
+      .rule-label {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .rule-detail {
+        font-size: 0.84rem;
+        color: var(--text-secondary);
+        margin-top: 4px;
+        line-height: 1.45;
+      }
+
+      .briefing-controls {
+        margin-top: auto;
+        padding-top: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .mode-toggle-group {
+        display: inline-flex;
+        border: 1px solid var(--border-crisp);
+        background-color: var(--bg-surface-deep);
+        border-radius: 2px;
+        padding: 3px;
+      }
+
+      .mode-toggle-btn {
+        height: 36px;
+        padding: 0 14px;
+        border: none;
+        background: transparent;
+        color: var(--text-muted);
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        border-radius: 1px;
+        white-space: nowrap;
+        transition:
+          background-color 140ms var(--ease-sharp),
+          color 140ms var(--ease-sharp);
+      }
+
+      .mode-toggle-btn.active {
+        background-color: var(--bg-surface-hover);
+        color: var(--accent-gold);
+      }
+
+      .btn-primary {
+        height: 50px;
+        padding: 0 28px;
+        background-color: var(--accent-gold);
+        color: #0b0e11;
+        border: 1px solid var(--accent-gold);
+        border-radius: 2px;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.18rem;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        white-space: nowrap;
+        transition:
+          transform 150ms var(--ease-sharp),
+          background-color 150ms var(--ease-sharp),
+          box-shadow 150ms var(--ease-sharp);
+      }
+
+      .btn-primary:hover {
+        background-color: #e3be47;
+        transform: translateX(3px);
+      }
+
+      .btn-primary:active {
+        transform: translateX(1px);
+      }
+
+      .btn-secondary {
+        height: 50px;
+        padding: 0 22px;
+        background-color: var(--bg-surface-deep);
+        color: var(--text-primary);
+        border: 1px solid var(--border-crisp);
+        border-radius: 2px;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        white-space: nowrap;
+        transition:
+          border-color 150ms var(--ease-sharp),
+          background-color 150ms var(--ease-sharp);
+      }
+
+      .btn-secondary:hover {
+        border-color: var(--accent-gold);
+        background-color: var(--bg-surface-hover);
+      }
+
+      /* ---- ACTIVE QUESTION TERMINAL (PLAYING / REVIEW) ---- */
+      .q-broadcast-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--border-crisp);
+      }
+
+      .q-competition-meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-secondary);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .q-competition-meta .league-name {
+        color: var(--accent-gold);
+        font-weight: 700;
+      }
+
+      .q-stake-meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+        color: var(--text-muted);
+      }
+
+      .q-stake-meta strong {
+        color: var(--text-primary);
+      }
+
+      /* Shot Clock */
+      .shot-clock-wrap {
+        padding: 16px 0 24px;
+      }
+
+      .shot-clock-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+
+      .clock-status-text {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .clock-status-text.urgent {
+        color: var(--accent-crimson);
+        font-weight: 700;
+      }
+
+      .clock-status-text.extra {
+        color: var(--accent-emerald);
+        font-weight: 700;
+      }
+
+      .clock-digits {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        font-size: 1.12rem;
+        color: var(--accent-gold);
+        letter-spacing: 0.03em;
+      }
+
+      .clock-digits.urgent {
+        color: var(--accent-crimson);
+      }
+
+      .clock-track {
+        width: 100%;
+        height: 5px;
+        background-color: #1f2731;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .clock-fill {
+        width: 100%;
+        height: 100%;
+        background-color: var(--accent-gold);
+        transform-origin: left center;
+        transform: scaleX(1);
+        transition: background-color 180ms linear;
+        will-change: transform;
+      }
+
+      .clock-fill.urgent {
+        background-color: var(--accent-crimson);
+      }
+
+      /* Question Stem */
+      .question-stem {
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: clamp(1.22rem, 2vw, 1.56rem);
+        line-height: 1.38;
+        color: var(--text-primary);
+        text-wrap: balance;
+        margin-bottom: 24px;
+      }
+
+      /* Answer Options */
+      .options-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+      }
+
+      .option-btn {
+        width: 100%;
+        min-height: 60px;
+        padding: 14px 18px;
+        background-color: var(--bg-surface-deep);
+        border: 1px solid var(--border-crisp);
+        border-radius: 2px;
+        color: var(--text-primary);
+        font-family: var(--font-body);
+        font-size: 0.98rem;
+        font-weight: 600;
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        transition:
+          border-color 150ms var(--ease-sharp),
+          background-color 150ms var(--ease-sharp),
+          transform 150ms var(--ease-sharp),
+          opacity 180ms var(--ease-sharp);
+      }
+
+      .option-btn:hover:not(:disabled) {
+        border-color: var(--accent-gold);
+        background-color: var(--bg-surface-hover);
+        transform: translateX(6px);
+      }
+
+      .option-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-width: 0;
+      }
+
+      .option-key {
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+        border: 1px solid var(--border-hover);
+        background-color: var(--bg-surface);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--text-muted);
+        transition:
+          border-color 150ms var(--ease-sharp),
+          color 150ms var(--ease-sharp),
+          background-color 150ms var(--ease-sharp);
+      }
+
+      .option-btn:hover:not(:disabled) .option-key {
+        border-color: var(--accent-gold);
+        color: var(--accent-gold);
+      }
+
+      .option-text {
+        line-height: 1.35;
+      }
+
+      .option-flag {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
+      }
+
+      /* Option States */
+      .option-btn.eliminated {
+        opacity: 0.28;
+        cursor: not-allowed;
+        text-decoration: line-through;
+        border-style: dashed;
+      }
+
+      .option-btn.eliminated .option-flag {
+        color: var(--text-muted);
+        text-decoration: none;
+      }
+
+      .option-btn.state-correct {
+        border-color: var(--accent-emerald);
+        background-color: var(--accent-emerald-dim);
+        transform: translateX(4px);
+      }
+
+      .option-btn.state-correct .option-key {
+        background-color: var(--accent-emerald);
+        border-color: var(--accent-emerald);
+        color: #0b0e11;
+      }
+
+      .option-btn.state-correct .option-flag {
+        color: var(--accent-emerald);
+      }
+
+      .option-btn.state-wrong {
+        border-color: var(--accent-crimson);
+        background-color: var(--accent-crimson-dim);
+      }
+
+      .option-btn.state-wrong .option-key {
+        background-color: var(--accent-crimson);
+        border-color: var(--accent-crimson);
+        color: #ffffff;
+      }
+
+      .option-btn.state-wrong .option-flag {
+        color: var(--accent-crimson);
+      }
+
+      .option-btn.state-dimmed {
+        opacity: 0.45;
+      }
+
+      .option-btn:disabled {
+        cursor: default;
+      }
+
+      /* Fact Check / Match Note Panel */
+      .match-note-box {
+        margin-top: 22px;
+        padding: 18px 20px;
+        background-color: var(--bg-surface-deep);
+        border: 1px solid var(--border-crisp);
+        border-radius: 2px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        animation: noteReveal 180ms var(--ease-sharp) forwards;
+      }
+
+      .match-note-box.outcome-correct {
+        border-color: rgba(0, 230, 118, 0.45);
+      }
+
+      .match-note-box.outcome-wrong {
+        border-color: rgba(255, 59, 48, 0.45);
+      }
+
+      @keyframes noteReveal {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .note-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .note-verdict {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.25rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .note-verdict.correct {
+        color: var(--accent-emerald);
+      }
+
+      .note-verdict.wrong {
+        color: var(--accent-crimson);
+      }
+
+      .note-kicker {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .note-text {
+        font-size: 0.92rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .note-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding-top: 10px;
+        border-top: 1px solid var(--border-crisp);
+      }
+
+      .kbd-hint {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-muted);
+      }
+
+      /* ---- FULL-TIME SUMMARY SCREEN ---- */
+      .summary-header {
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--border-crisp);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .summary-kicker {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--accent-gold);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 8px;
+      }
+
+      .summary-rating-title {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: clamp(2.25rem, 3.6vw, 3.15rem);
+        line-height: 0.98;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+      }
+
+      .summary-verdict-copy {
+        font-size: 0.94rem;
+        color: var(--text-secondary);
+        max-width: 54ch;
+      }
+
+      .summary-trophy-box {
+        width: 88px;
+        height: 88px;
+        flex-shrink: 0;
+        background-color: var(--bg-surface-deep);
+        border: 1px solid var(--accent-gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      }
+
+      .summary-kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        padding: 22px 0;
+        border-bottom: 1px solid var(--border-crisp);
+      }
+
+      .kpi-box {
+        padding: 14px 16px;
+        background-color: var(--bg-surface-deep);
+        border: 1px solid var(--border-crisp);
+      }
+
+      .kpi-label {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+        margin-bottom: 6px;
+      }
+
+      .kpi-val {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 2rem;
+        line-height: 1;
+        color: var(--text-primary);
+      }
+
+      .kpi-val.gold {
+        color: var(--accent-gold);
+      }
+
+      .kpi-val.emerald {
+        color: var(--accent-emerald);
+      }
+
+      .match-log-wrap {
+        padding: 20px 0 24px;
+        flex: 1;
+      }
+
+      .match-log-title {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+      }
+
+      .match-log-list {
+        max-height: 230px;
+        overflow-y: auto;
+        border: 1px solid var(--border-crisp);
+        background-color: var(--bg-surface-deep);
+      }
+
+      .log-row {
+        padding: 11px 14px;
+        border-bottom: 1px solid var(--border-crisp);
+        display: grid;
+        grid-template-columns: 74px minmax(0, 1fr) 90px;
+        gap: 12px;
+        align-items: center;
+        font-size: 0.84rem;
+      }
+
+      .log-row:last-child {
+        border-bottom: none;
+      }
+
+      .log-meta {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-muted);
+      }
+
+      .log-question {
+        color: var(--text-secondary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .log-question strong {
+        color: var(--text-primary);
+      }
+
+      .log-status {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        text-align: right;
+      }
+
+      .log-status.ok {
+        color: var(--accent-emerald);
+      }
+
+      .log-status.miss {
+        color: var(--accent-crimson);
+      }
+
+      .summary-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      /* ================= RESPONSIVE ================= */
+      @media (max-width: 1040px) {
+        .main-grid {
+          grid-template-columns: 1fr;
+          padding: 20px 20px 40px;
+          gap: 20px;
+        }
+
+        .telemetry-rail {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+
+        .filter-panel {
+          grid-column: 1 / -1;
+        }
+
+        .filter-list {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+          gap: 6px;
+        }
+
+        .masthead-meta {
+          display: none;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .masthead-inner {
+          padding: 0 16px;
+          height: 58px;
+        }
+
+        .brand-title {
+          font-size: 1.25rem;
+        }
+
+        .hdr-btn span.btn-text-desktop {
+          display: none;
+        }
+
+        .main-grid {
+          padding: 16px 14px 32px;
+        }
+
+        .telemetry-rail {
+          grid-template-columns: 1fr;
+        }
+
+        .view-section {
+          padding: 22px 18px 24px;
+        }
+
+        .briefing-hero {
+          flex-direction: column-reverse;
+          gap: 18px;
+          padding: 22px 0;
+        }
+
+        .briefing-emblem-box {
+          width: 72px;
+          height: 72px;
+          padding: 12px;
+        }
+
+        .briefing-rules {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+
+        .summary-header {
+          flex-direction: column-reverse;
+          align-items: flex-start;
+        }
+
+        .summary-kpi-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .log-row {
+          grid-template-columns: 60px minmax(0, 1fr) 72px;
+          gap: 8px;
+        }
+
+        .terminal-stage {
+          min-height: auto;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Atmospheric Floodlight & Pitch Line Geometry -->
+    <div class="pitch-backdrop" aria-hidden="true"></div>
+    <svg
+      class="pitch-lines-svg"
+      viewBox="0 0 1440 900"
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+    >
+      <g stroke="#F4F6F8" stroke-width="1" fill="none">
+        <rect x="48" y="48" width="1344" height="804" />
+        <line x1="720" y1="48" x2="720" y2="852" />
+        <circle cx="720" cy="450" r="120" />
+        <circle cx="720" cy="450" r="4" fill="#F4F6F8" />
+        <rect x="48" y="250" width="190" height="400" />
+        <rect x="1202" y="250" width="190" height="400" />
+        <path d="M 238 370 A 110 110 0 0 1 238 530" />
+        <path d="M 1202 370 A 110 110 0 0 0 1202 530" />
+      </g>
+    </svg>
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <div class="app-shell">
+      <!-- TOP BROADCAST MASTHEAD -->
+      <header class="masthead">
+        <div class="masthead-inner">
+          <a href="#top" id="brandHomeLink" class="brand-lockup" aria-label="Beranda The 2000s Pitch">
+            <span class="brand-emblem" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M6 4H26V15.5C26 22.2 21.4 26.8 16 29C10.6 26.8 6 22.2 6 15.5V4Z"
+                  stroke="#D4AF37"
+                  stroke-width="2"
+                />
+                <path d="M16 7.5L18.2 12.2L23.2 12.8L19.5 16.3L20.4 21.3L16 18.8L11.6 21.3L12.5 16.3L8.8 12.8L13.8 12.2L16 7.5Z" fill="#D4AF37" />
+              </svg>
+            </span>
+            <span class="brand-title">THE 2000s <span>PITCH</span></span>
+          </a>
+
+          <div class="masthead-meta" aria-label="Cakupan arsip">
+            <span>Arsip Sepak Bola Eropa</span>
+            <span class="meta-sep" aria-hidden="true">/</span>
+            <span>2000–Sekarang</span>
+            <span class="meta-sep" aria-hidden="true">/</span>
+            <span id="headerDeckInfo">36 Pertanyaan Terverifikasi</span>
+          </div>
+
+          <div class="masthead-actions">
+            <button
+              type="button"
+              id="muteToggleBtn"
+              class="hdr-btn"
+              aria-pressed="false"
+              title="Aktifkan atau bisukan efek suara stadion (M)"
+            >
+              <svg id="soundOnIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+              </svg>
+              <svg id="soundOffIcon" class="hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <line x1="23" y1="9" x2="17" y2="15" />
+                <line x1="17" y1="9" x2="23" y2="15" />
+              </svg>
+              <span id="muteLabel" class="btn-text-desktop">Suara Aktif</span>
+            </button>
+            <button
+              type="button"
+              id="headerRestartBtn"
+              class="hdr-btn"
+              title="Kembali ke ringkasan pra-pertandingan"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="1 4 1 10 7 10" />
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+              </svg>
+              <span class="btn-text-desktop">Ulang</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- ASYMMETRIC SPLIT-SCREEN WORKSPACE -->
+      <main class="main-grid" id="top">
+        <!-- LEFT COLUMN: TELEMETRY, SCOREBOARD, LIFELINES & FILTERS -->
+        <aside class="telemetry-rail" aria-label="Telemetri Laga dan Filter Kompetisi">
+          <!-- SCOREBOARD MODULE -->
+          <section class="panel" aria-label="Papan Skor">
+            <div class="panel-header">
+              <h2 class="panel-title">Papan Skor Laga</h2>
+              <span class="panel-sub tabular" id="fixtureProgressLabel">PRA-LAGA</span>
+            </div>
+            <div class="scoreboard-body">
+              <div class="score-primary-row">
+                <div class="score-cell">
+                  <div class="score-label">
+                    <span>Skor</span>
+                    <span id="pointsDeltaTag" class="record-tag"></span>
+                  </div>
+                  <div class="score-value tabular" id="scoreDisplay">0</div>
+                </div>
+                <div class="score-cell">
+                  <div class="score-label">
+                    <span>Skor Tertinggi</span>
+                    <span id="newRecordTag" class="record-tag hidden">BARU</span>
+                  </div>
+                  <div class="score-value gold tabular" id="highScoreDisplay">0</div>
+                </div>
+              </div>
+
+              <div class="streak-block">
+                <div class="streak-top">
+                  <span class="streak-meta">
+                    Rekor Beruntun: <strong class="tabular" id="streakDisplay">0</strong>
+                  </span>
+                  <span class="multiplier-readout tabular" id="multiplierDisplay">1x</span>
+                </div>
+                <div class="multiplier-rail" aria-label="Tingkatan pengali beruntun">
+                  <div class="mult-seg active-1" id="multSeg1">
+                    <div class="mult-bar"></div>
+                    <div class="mult-caption"><span>1x</span><span>Dasar</span></div>
+                  </div>
+                  <div class="mult-seg" id="multSeg2">
+                    <div class="mult-bar"></div>
+                    <div class="mult-caption"><span>2x</span><span>2+ Seri</span></div>
+                  </div>
+                  <div class="mult-seg" id="multSeg3">
+                    <div class="mult-bar"></div>
+                    <div class="mult-caption"><span>3x</span><span>4+ Seri</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="telemetry-foot">
+                <span>Akurasi: <strong class="tabular" id="accuracyDisplay">—</strong></span>
+                <span>Beruntun Terbaik: <strong class="tabular" id="bestStreakDisplay">0</strong></span>
+              </div>
+            </div>
+          </section>
+
+          <!-- LIFELINES MODULE -->
+          <section class="panel" aria-label="Bantuan Pertandingan">
+            <div class="panel-header">
+              <h2 class="panel-title">Bantuan Taktis</h2>
+              <span class="panel-sub">1x Per Laga</span>
+            </div>
+            <div class="lifelines-grid">
+              <button
+                type="button"
+                id="lifelineVarBtn"
+                class="lifeline-btn"
+                disabled
+                title="Hapus dua jawaban yang salah (Pintasan: V)"
+              >
+                <div class="lifeline-top">
+                  <svg class="lifeline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="4" width="20" height="14" rx="1" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                    <line x1="12" y1="18" x2="12" y2="21" />
+                    <path d="M7 11l3 3 7-7" />
+                  </svg>
+                  <span class="lifeline-status" id="varStatusText">SIAP</span>
+                </div>
+                <div>
+                  <div class="lifeline-name">Cek VAR 50:50</div>
+                  <div class="lifeline-hint">Hapus 2 opsi [V]</div>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                id="lifelineTimeBtn"
+                class="lifeline-btn"
+                disabled
+                title="Tambah 10 detik pada jam waktu (Pintasan: E)"
+              >
+                <div class="lifeline-top">
+                  <svg class="lifeline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="13" r="8" />
+                    <polyline points="12 9 12 13 15 15" />
+                    <line x1="9" y1="2" x2="15" y2="2" />
+                    <line x1="12" y1="2" x2="12" y2="5" />
+                  </svg>
+                  <span class="lifeline-status" id="extraTimeStatusText">SIAP</span>
+                </div>
+                <div>
+                  <div class="lifeline-name">Tambahan +10d</div>
+                  <div class="lifeline-hint">Tambah waktu [E]</div>
+                </div>
+              </button>
+            </div>
+          </section>
+
+          <!-- COMPETITION FILTER MODULE -->
+          <section class="panel filter-panel" aria-label="Filter Kompetisi">
+            <div class="panel-header">
+              <h2 class="panel-title">Filter Kompetisi</h2>
+              <span class="panel-sub">Pilih Liga</span>
+            </div>
+            <div class="filter-list" id="competitionFilterList" role="group" aria-label="Filter trivia berdasarkan kompetisi">
+              <!-- Populated cleanly via JS -->
+            </div>
+          </section>
+        </aside>
+
+        <!-- RIGHT COLUMN: ACTIVE TRIVIA TERMINAL -->
+        <section class="terminal-stage" aria-label="Terminal Trivia">
+          <!-- VIEW 1: PRE-MATCH BRIEFING -->
+          <div id="viewBriefing" class="view-section">
+            <div class="briefing-top-meta">
+              <span class="gold-text" id="briefingLeagueTag">SEMUA KOMPETISI</span>
+              <span class="meta-sep" aria-hidden="true">·</span>
+              <span>ERA: 2000–SEKARANG</span>
+              <span class="meta-sep" aria-hidden="true">·</span>
+              <span id="briefingCountTag">LAGA 12 PERTANYAAN</span>
+            </div>
+
+            <div class="briefing-hero">
+              <div class="briefing-copy">
+                <div class="briefing-kicker">Arsip Trivia Sepak Bola Eropa</div>
+                <h1 class="briefing-headline" id="briefingHeadline">
+                  The 2000s Pitch: Semua Kompetisi
+                </h1>
+                <p class="briefing-desc" id="briefingDesc">
+                  Dari Keajaiban Istanbul 2005 dan gol 93:20 Agüero hingga musim tak terkalahkan Bayer Leverkusen dan dinasti tujuh gelar Lyon. Hadapi laga seimbang dari enam kompetisi elite Eropa.
+                </p>
+              </div>
+              <div class="briefing-emblem-box" id="briefingEmblemBox" aria-hidden="true"></div>
+            </div>
+
+            <div class="briefing-rules">
+              <div class="rule-item">
+                <div class="rule-figure tabular">15<span>d</span></div>
+                <div class="rule-label">Batas Waktu</div>
+                <div class="rule-detail">
+                  Jawab sebelum waktu habis di setiap soal. Jawaban lebih cepat meraih bonus kecepatan hingga +50 poin.
+                </div>
+              </div>
+              <div class="rule-item">
+                <div class="rule-figure tabular">3<span>x</span></div>
+                <div class="rule-label">Pengali Beruntun</div>
+                <div class="rule-detail">
+                  Rangkai jawaban benar berturut-turut untuk membuka pengali 2x (2+ beruntun) dan 3x (4+ beruntun).
+                </div>
+              </div>
+              <div class="rule-item">
+                <div class="rule-figure tabular">02</div>
+                <div class="rule-label">Bantuan Taktis</div>
+                <div class="rule-detail">
+                  Gunakan satu kali Cek VAR 50:50 dan satu kali Tambahan Waktu +10 detik dalam satu laga.
+                </div>
+              </div>
+            </div>
+
+            <div class="briefing-controls">
+              <div id="matchLengthWrap">
+                <div class="mode-toggle-group" role="group" aria-label="Jumlah pertanyaan">
+                  <button type="button" id="modeStandardBtn" class="mode-toggle-btn active">
+                    Laga 12 Soal
+                  </button>
+                  <button type="button" id="modeArchiveBtn" class="mode-toggle-btn">
+                    Arsip Penuh 36
+                  </button>
+                </div>
+              </div>
+
+              <button type="button" id="kickoffBtn" class="btn-primary">
+                <span>Mulai Pertandingan</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- VIEW 2: ACTIVE QUESTION & REVIEW -->
+          <div id="viewQuestion" class="view-section hidden">
+            <div class="q-broadcast-bar">
+              <div class="q-competition-meta">
+                <span id="qLeagueCrest" class="league-crest" aria-hidden="true"></span>
+                <span id="qLeagueName" class="league-name">Liga Champions UEFA</span>
+                <span class="meta-sep" aria-hidden="true">·</span>
+                <span id="qSeasonYear" class="tabular">2004–05</span>
+              </div>
+              <div class="q-stake-meta tabular">
+                <span id="qCounterText">Soal 01 / 12</span>
+                <span class="meta-sep" aria-hidden="true">·</span>
+                <span>Dasar <strong id="qStakeValue">+100 POIN</strong></span>
+              </div>
+            </div>
+
+            <div class="shot-clock-wrap">
+              <div class="shot-clock-header">
+                <span id="clockStatusLabel" class="clock-status-text">WAKTU BERJALAN</span>
+                <span id="clockDigits" class="clock-digits tabular">15.0 dtk</span>
+              </div>
+              <div
+                class="clock-track"
+                role="progressbar"
+                aria-label="Batas waktu pertanyaan"
+                aria-valuemin="0"
+                aria-valuemax="15"
+                aria-valuenow="15"
+                id="clockProgressBar"
+              >
+                <div id="clockFill" class="clock-fill"></div>
+              </div>
+            </div>
+
+            <h2 id="questionStem" class="question-stem"></h2>
+
+            <div id="optionsContainer" class="options-stack" role="group" aria-label="Pilihan jawaban">
+              <!-- 4 option buttons rendered dynamically -->
+            </div>
+
+            <!-- FACT CHECK / MATCH NOTE -->
+            <div id="matchNoteBox" class="match-note-box hidden" aria-live="polite">
+              <div class="note-header">
+                <div id="noteVerdict" class="note-verdict"></div>
+                <span class="note-kicker">Cek Fakta · Catatan Laga</span>
+              </div>
+              <p id="noteBody" class="note-text"></p>
+              <div class="note-footer">
+                <span class="kbd-hint">Tekan Enter atau Spasi untuk lanjut</span>
+                <button type="button" id="nextQuestionBtn" class="btn-primary" style="height: 44px; padding: 0 22px; font-size: 1.05rem;">
+                  <span id="nextBtnLabel">Pertanyaan Berikutnya</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- VIEW 3: FULL-TIME SUMMARY SCREEN -->
+          <div id="viewSummary" class="view-section hidden">
+            <div class="summary-header">
+              <div>
+                <div class="summary-kicker" id="summaryCompetitionLabel">
+                  Laporan Waktu Penuh · Semua Kompetisi
+                </div>
+                <h1 class="summary-rating-title" id="summaryRatingTitle">Juara Liga Champions</h1>
+                <p class="summary-verdict-copy" id="summaryVerdictCopy"></p>
+              </div>
+              <div class="summary-trophy-box" id="summaryTrophyBox" aria-hidden="true"></div>
+            </div>
+
+            <div class="summary-kpi-grid">
+              <div class="kpi-box">
+                <div class="kpi-label">Skor Akhir</div>
+                <div class="kpi-val gold tabular" id="sumScore">0</div>
+              </div>
+              <div class="kpi-box">
+                <div class="kpi-label">Akurasi</div>
+                <div class="kpi-val emerald tabular" id="sumAccuracy">0%</div>
+              </div>
+              <div class="kpi-box">
+                <div class="kpi-label">Beruntun Terbaik</div>
+                <div class="kpi-val tabular" id="sumBestStreak">0</div>
+              </div>
+              <div class="kpi-box">
+                <div class="kpi-label">Catatan</div>
+                <div class="kpi-val tabular" id="sumCorrectCount">0 / 12</div>
+              </div>
+            </div>
+
+            <div class="match-log-wrap">
+              <div class="match-log-title">Lembar Hasil Per Pertanyaan</div>
+              <div class="match-log-list" id="summaryMatchLog"></div>
+            </div>
+
+            <div class="summary-actions">
+              <button type="button" id="summaryChangeCompBtn" class="btn-secondary">
+                Ganti Kompetisi
+              </button>
+              <button type="button" id="playAgainBtn" class="btn-primary">
+                <span>Main Lagi</span>
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="1 4 1 10 7 10" />
+                  <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      (() => {
+        'use strict';
+
+        /* =========================================================================
+           1. CUSTOM INLINE SVG HERALDRY (ZERO EXTERNAL IMAGE DEPENDENCIES)
+        ========================================================================= */
+        const LEAGUE_SVGS = {
+          ALL: `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="12.5" stroke="#D4AF37" stroke-width="1.8"/>
+            <ellipse cx="16" cy="16" rx="6" ry="12.5" stroke="#D4AF37" stroke-width="1.4"/>
+            <line x1="3.5" y1="16" x2="28.5" y2="16" stroke="#D4AF37" stroke-width="1.4"/>
+            <path d="M6.5 9.5H25.5M6.5 22.5H25.5" stroke="#D4AF37" stroke-width="1.2" opacity="0.7"/>
+          </svg>`,
+
+          UCL: `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="12.5" stroke="#F4F6F8" stroke-width="1.7"/>
+            <polygon points="16,5.5 17.7,10.5 23,10.5 18.7,13.6 20.3,18.7 16,15.6 11.7,18.7 13.3,13.6 9,10.5 14.3,10.5" fill="#D4AF37"/>
+            <circle cx="8.5" cy="21" r="1.4" fill="#F4F6F8"/>
+            <circle cx="23.5" cy="21" r="1.4" fill="#F4F6F8"/>
+            <circle cx="16" cy="24.5" r="1.4" fill="#F4F6F8"/>
+          </svg>`,
+
+          EPL: `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 7L11 12L16 6L21 12L26 7L24 21C24 24.5 20.4 27 16 28.5C11.6 27 8 24.5 8 21L6 7Z" stroke="#D4AF37" stroke-width="1.8" stroke-linejoin="miter"/>
+            <line x1="9" y1="16.5" x2="23" y2="16.5" stroke="#F4F6F8" stroke-width="1.6"/>
+            <circle cx="16" cy="21.5" r="2.2" fill="#D4AF37"/>
+          </svg>`,
+
+          LALIGA: `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 5H25V17C25 22.8 21 26.8 16 28.5C11 26.8 7 22.8 7 17V5Z" stroke="#FF3B30" stroke-width="1.8"/>
+            <path d="M11 10H14.5V21H21V24H11V10Z" fill="#D4AF37"/>
+          </svg>`,
+
+          SERIEA: `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 5H25V16.5C25 22.5 20.8 26.6 16 28.5C11.2 26.6 7 22.5 7 16.5V5Z" stroke="#F4F6F8" stroke-width="1.7"/>
+            <path d="M12.5 5.8V26.7" stroke="#00E676" stroke-width="2.4"/>
+            <path d="M19.5 5.8V26.7" stroke="#FF3B30" stroke-width="2.4"/>
+            <path d="M16 5.8V27.6" stroke="#F4F6F8" stroke-width="2.2"/>
+          </svg>`,
+
+          BUNDESLIGA: `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="12" stroke="#D4AF37" stroke-width="2"/>
+            <circle cx="16" cy="16" r="7.5" stroke="#F4F6F8" stroke-width="1.4" stroke-dasharray="3 2"/>
+            <circle cx="16" cy="16" r="3.2" fill="#FF3B30"/>
+            <circle cx="16" cy="6.5" r="1.2" fill="#D4AF37"/>
+            <circle cx="16" cy="25.5" r="1.2" fill="#D4AF37"/>
+            <circle cx="6.5" cy="16" r="1.2" fill="#D4AF37"/>
+            <circle cx="25.5" cy="16" r="1.2" fill="#D4AF37"/>
+          </svg>`,
+
+          LIGUE1: `<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="16,3.5 27,9.8 27,22.2 16,28.5 5,22.2 5,9.8" stroke="#D4AF37" stroke-width="1.8"/>
+            <path d="M14 10H17.5V22H14V13.5H12V11.2L14 10Z" fill="#F4F6F8"/>
+            <circle cx="21" cy="20.5" r="1.8" fill="#00E676"/>
+          </svg>`,
+        };
+
+        const TROPHY_SVG = `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 8H34V20C34 25.5 29.5 30 24 30C18.5 30 14 25.5 14 20V8Z" stroke="#D4AF37" stroke-width="2.4"/>
+          <path d="M14 12H8C8 18.5 10.5 22 14.5 22" stroke="#D4AF37" stroke-width="2"/>
+          <path d="M34 12H40C40 18.5 37.5 22 33.5 22" stroke="#D4AF37" stroke-width="2"/>
+          <line x1="24" y1="30" x2="24" y2="38" stroke="#D4AF37" stroke-width="2.4"/>
+          <path d="M15 41H33L31 38H17L15 41Z" fill="#D4AF37"/>
+          <polygon points="24,13 25.5,16.8 29.5,17 26.4,19.4 27.5,23.2 24,21 20.5,23.2 21.6,19.4 18.5,17 22.5,16.8" fill="#D4AF37"/>
+        </svg>`;
+
+        const COMPETITIONS = [
+          {
+            id: 'ALL',
+            name: 'Semua Kompetisi',
+            short: 'SEMUA',
+            headline: 'The 2000s Pitch: Semua Kompetisi',
+            desc: 'Dari Keajaiban Istanbul 2005 dan gol 93:20 Agüero hingga musim tak terkalahkan Bayer Leverkusen dan dinasti tujuh gelar Lyon. Hadapi laga seimbang dari enam kompetisi elite Eropa.',
+          },
+          {
+            id: 'UCL',
+            name: 'Liga Champions UEFA',
+            short: 'UCL',
+            headline: 'Arsip Liga Champions UEFA',
+            desc: 'Malam-malam Eropa di bawah sorot lampu stadion sejak 2000 hingga sekarang: tendangan voli Hampden, keajaiban Istanbul, La Remontada, hingga final penentu treble.',
+          },
+          {
+            id: 'EPL',
+            name: 'Premier League',
+            short: 'EPL',
+            headline: 'Arsip Premier League Inggris',
+            desc: 'The Invincibles, benteng 15 gol Mourinho, drama 93:20, kejutan 5000–1 Leicester City, The Centurions, hingga rekor gol Erling Haaland.',
+          },
+          {
+            id: 'LALIGA',
+            name: 'La Liga',
+            short: 'ESP',
+            headline: 'Arsip La Liga Spanyol',
+            desc: 'Era Galácticos, Sextuple bersejarah Guardiola, Madrid 100 poin Mourinho, penentuan gelar Simeone di Camp Nou, dan kejayaan Valencia bersama Benítez.',
+          },
+          {
+            id: 'SERIEA',
+            name: 'Serie A',
+            short: 'ITA',
+            headline: 'Arsip Serie A Italia',
+            desc: 'Scudetto Roma bersama Batistuta, ikon Ballon d\'Or Milan, treble Inter 2010, Juventus tak terkalahkan Conte, 36 gol Higuaín, dan kebangkitan Napoli.',
+          },
+          {
+            id: 'BUNDESLIGA',
+            name: 'Bundesliga',
+            short: 'GER',
+            headline: 'Arsip Bundesliga Jerman',
+            desc: 'Gelar tak terkalahkan bersejarah Leverkusen, 41 gol dan 5 gol dalam 9 menit Lewandowski, gelar ganda Dortmund era Klopp, kejutan Wolfsburg, serta drama Mei 2001.',
+          },
+          {
+            id: 'LIGUE1',
+            name: 'Ligue 1',
+            short: 'FRA',
+            headline: 'Arsip Ligue 1 Prancis',
+            desc: 'Tujuh gelar beruntun Lyon, gelar ganda Lille bersama Hazard, kejutan Montpellier, ledakan Mbappé di Monaco, transfer €222 juta Neymar, dan Lille asuhan Galtier.',
+          },
+        ];
+
+        /* =========================================================================
+           2. CURATED 36-QUESTION EUROPEAN FOOTBALL ARCHIVE (2000–SEKARANG)
+        ========================================================================= */
+        const QUESTION_BANK = [
+          // --- LIGA CHAMPIONS UEFA (6) ---
+          {
+            id: 'ucl-1',
+            league: 'UCL',
+            year: '2004–05',
+            question:
+              'Pada Final Liga Champions 2005 di Istanbul, Liverpool bangkit dari ketertinggalan 3–0 atas AC Milan dalam enam menit. Siapa pencetak gol kedua Liverpool dalam kebangkitan tersebut?',
+            options: ['Vladimír Šmicer', 'Steven Gerrard', 'Xabi Alonso', 'Luis García'],
+            answer: 'Vladimír Šmicer',
+            note: 'Steven Gerrard memicu kebangkitan pada menit ke-54, Vladimír Šmicer melepaskan tembakan keras jarak jauh pada menit ke-56, lalu Xabi Alonso menyambar bola muntah penaltinya pada menit ke-60 sebelum Liverpool menang adu penalti.',
+          },
+          {
+            id: 'ucl-2',
+            league: 'UCL',
+            year: '2016–17',
+            question:
+              'Dalam comeback bersejarah 6–1 "La Remontada" Barcelona atas Paris Saint-Germain pada Maret 2017, siapa yang mencetak gol keenam penentu kemenangan pada menit ke-95?',
+            options: ['Sergi Roberto', 'Neymar', 'Luis Suárez', 'Ivan Rakitić'],
+            answer: 'Sergi Roberto',
+            note: 'Tertinggal 4–0 dari leg pertama di Paris, Barcelona mencetak tiga gol setelah menit ke-88, ditutup oleh Sergi Roberto yang menyambar umpan lambung Neymar untuk menang agregat 6–5.',
+          },
+          {
+            id: 'ucl-3',
+            league: 'UCL',
+            year: '2001–02',
+            question:
+              'Tendangan voli kaki kiri ikonik Zinedine Zidane di Hampden Park membawa Real Madrid menjuarai Final Liga Champions 2002 melawan klub Jerman mana?',
+            options: ['Bayer Leverkusen', 'Bayern Munich', 'Borussia Dortmund', 'Schalke 04'],
+            answer: 'Bayer Leverkusen',
+            note: 'Real Madrid menang 2–1 di Glasgow setelah Zidane menyambut umpan lambung tinggi Roberto Carlos sesaat sebelum jeda, membuat Leverkusen mengalami musim runner-up treble yang menyakitkan.',
+          },
+          {
+            id: 'ucl-4',
+            league: 'UCL',
+            year: '2011–12',
+            question:
+              'Chelsea mengangkat trofi Liga Champions pertama mereka dengan mengalahkan Bayern Munich di Munich. Pemain mana yang mencetak sundulan penyama kedudukan menit ke-88 sekaligus penalti penentu?',
+            options: ['Didier Drogba', 'Frank Lampard', 'Juan Mata', 'Ashley Cole'],
+            answer: 'Didier Drogba',
+            note: 'Didier Drogba menanduk umpan sudut Juan Mata melewati Manuel Neuer dua menit sebelum laga usai untuk membalas gol Thomas Müller, lalu dengan tenang mengeksekusi penalti kelima penentu gelar.',
+          },
+          {
+            id: 'ucl-5',
+            league: 'UCL',
+            year: '2003–04',
+            question:
+              'José Mourinho membawa tim kuda hitam FC Porto menjuarai Liga Champions UEFA 2004 lewat kemenangan 3–0 di Gelsenkirchen. Klub mana yang dikalahkan Porto di final?',
+            options: ['AS Monaco', 'Deportivo La Coruña', 'AC Milan', 'Valencia'],
+            answer: 'AS Monaco',
+            note: 'Carlos Alberto, Deco, dan Dmitri Alenichev membobol gawang AS Monaco asuhan Didier Deschamps, menuntaskan perjalanan sensasional Porto setelah sebelumnya menyingkirkan Manchester United dan Deportivo.',
+          },
+          {
+            id: 'ucl-6',
+            league: 'UCL',
+            year: '2022–23',
+            question:
+              'Manchester City meraih trofi Liga Champions UEFA perdana mereka di Istanbul pada Juni 2023 untuk melengkapi treble. Siapa pencetak gol tunggal kemenangan 1–0 atas Inter Milan?',
+            options: ['Rodri', 'Erling Haaland', 'İlkay Gündoğan', 'Bernardo Silva'],
+            answer: 'Rodri',
+            note: 'Rodri mengarahkan sepakan kaki kanan terukur ke sudut gawang pada menit ke-68 setelah umpan tarik Bernardo Silva memantul ke jalurnya di Stadion Olimpiade Atatürk.',
+          },
+
+          // --- PREMIER LEAGUE (6) ---
+          {
+            id: 'epl-1',
+            league: 'EPL',
+            year: '2011–12',
+            question:
+              'Pada pekan terakhir Premier League 2011–12, Sergio Agüero mencetak gol legendaris menit 93:20 melawan QPR untuk memastikan gelar Manchester City. Siapa pemberi assist-nya?',
+            options: ['Mario Balotelli', 'David Silva', 'Carlos Tevez', 'Yaya Touré'],
+            answer: 'Mario Balotelli',
+            note: 'Sambil terjatuh di dalam kotak penalti, Mario Balotelli menyodorkan bola ke jalur lari Agüero—menariknya, itu menjadi satu-satunya assist Balotelli sepanjang musim Premier League 2011–12.',
+          },
+          {
+            id: 'epl-2',
+            league: 'EPL',
+            year: '2003–04',
+            question:
+              'Skuad "Invincibles" Arsenal menuntaskan Premier League 2003–04 tanpa satu pun kekalahan. Bagaimana catatan tepat mereka dalam 38 pertandingan?',
+            options: ['26 menang, 12 seri', '28 menang, 10 seri', '30 menang, 8 seri', '25 menang, 13 seri'],
+            answer: '26 menang, 12 seri',
+            note: 'Tim asuhan Arsène Wenger mengumpulkan 90 poin dari 26 kemenangan dan 12 hasil imbang, ditopang 30 gol peraih Sepatu Emas Thierry Henry, untuk mendapatkan trofi emas khusus Premier League.',
+          },
+          {
+            id: 'epl-3',
+            league: 'EPL',
+            year: '2015–16',
+            question:
+              'Saat Leicester City menjuarai Premier League 2015–16 secara ajaib dengan peluang 5000–1, bintang The Foxes mana yang terpilih sebagai PFA Players\' Player of the Year?',
+            options: ['Riyad Mahrez', 'Jamie Vardy', 'N\'Golo Kanté', 'Kasper Schmeichel'],
+            answer: 'Riyad Mahrez',
+            note: 'Riyad Mahrez membukukan 17 gol dan 11 assist untuk menjadi pemain Afrika pertama peraih PFA Players\' Player of the Year, sementara Jamie Vardy meraih penghargaan FWA Footballer of the Year.',
+          },
+          {
+            id: 'epl-4',
+            league: 'EPL',
+            year: '2004–05',
+            question:
+              'Chelsea asuhan José Mourinho mencatat rekor pertahanan terbaik sepanjang sejarah Premier League pada 2004–05. Berapa jumlah gol yang mereka kebobolan dalam 38 laga?',
+            options: ['15', '18', '20', '12'],
+            answer: '15',
+            note: 'Dengan fondasi John Terry, Ricardo Carvalho, dan Claude Makélélé, Petr Čech mencatat 24 clean sheet saat Chelsea hanya kebobolan 15 gol menuju raihan 95 poin.',
+          },
+          {
+            id: 'epl-5',
+            league: 'EPL',
+            year: '2017–18',
+            question:
+              'Manchester City menjadi tim "Centurions" pertama di Premier League dengan 100 poin pada 2017–18. Siapa yang mencetak gol lob menit ke-94 di kandang Southampton pada laga terakhir?',
+            options: ['Gabriel Jesus', 'Raheem Sterling', 'Kevin De Bruyne', 'Leroy Sané'],
+            answer: 'Gabriel Jesus',
+            note: 'Pada detik-detik akhir di St Mary\'s, Kevin De Bruyne mengirim umpan jauh akurat yang dikontrol Gabriel Jesus lalu dicungkil melewati Alex McCarthy untuk kemenangan 1–0.',
+          },
+          {
+            id: 'epl-6',
+            league: 'EPL',
+            year: '2022–23',
+            question:
+              'Erling Haaland memecahkan rekor gol semusim Premier League milik Alan Shearer dan Andy Cole (34 gol) pada 2022–23. Berapa total gol liga yang dicetak Haaland musim itu?',
+            options: ['36', '35', '38', '37'],
+            answer: '36',
+            note: 'Haaland melesakkan 36 gol hanya dalam 35 penampilan Premier League—melampaui rekor lama yang sebelumnya tercipta pada format musim 42 pertandingan.',
+          },
+
+          // --- LA LIGA (6) ---
+          {
+            id: 'laliga-1',
+            league: 'LALIGA',
+            year: '2011–12',
+            question:
+              'Lionel Messi mencetak rekor 50 gol La Liga pada 2011–12, namun Barcelona finis kedua. Pelatih mana yang membawa Real Madrid meraih gelar juara dengan rekor 100 poin musim itu?',
+            options: ['José Mourinho', 'Carlo Ancelotti', 'Manuel Pellegrini', 'Zinedine Zidane'],
+            answer: 'José Mourinho',
+            note: 'Real Madrid racikan serangan balik Mourinho memecahkan rekor produktivitas liga dengan 121 gol dan menjadi tim La Liga pertama yang menembus 100 poin, unggul sembilan poin dari Barcelona.',
+          },
+          {
+            id: 'laliga-2',
+            league: 'LALIGA',
+            year: '2013–14',
+            question:
+              'Atlético Madrid mengunci gelar La Liga 2013–14 pada pekan terakhir lewat hasil imbang 1–1 di Camp Nou. Siapa yang menyundul gol penyama kedudukan dari sepak pojok Gabi?',
+            options: ['Diego Godín', 'Diego Costa', 'Miranda', 'Raúl García'],
+            answer: 'Diego Godín',
+            note: 'Setelah kehilangan Diego Costa dan Arda Turan akibat cedera di babak pertama, Diego Godín melompat paling tinggi pada menit ke-49 untuk membalas gol Alexis Sánchez dan mengakhiri puasa gelar 18 tahun.',
+          },
+          {
+            id: 'laliga-3',
+            league: 'LALIGA',
+            year: '2003–04',
+            question:
+              'Sebelum menjuarai Liga Champions bersama Liverpool, Rafael Benítez memenangkan dua gelar La Liga dalam tiga musim (2001–02 dan 2003–04) bersama klub mana?',
+            options: ['Valencia', 'Deportivo La Coruña', 'Sevilla', 'Villarreal'],
+            answer: 'Valencia',
+            note: 'Valencia yang disiplin di bawah Benítez dua kali mengungguli Real Madrid era Galácticos, bahkan menyempurnakan musim 2003–04 dengan menjuarai Piala UEFA atas Marseille.',
+          },
+          {
+            id: 'laliga-4',
+            league: 'LALIGA',
+            year: '2008–09',
+            question:
+              'Dalam era transformatif awal Pep Guardiola (2008–09), tonggak sejarah belum pernah terjadi sebelumnya apa yang diselesaikan FC Barcelona hingga akhir tahun kalender 2009?',
+            options: [
+              'Sextuple pertama sepanjang sejarah (6 trofi)',
+              'Musim liga tak terkalahkan dalam 38 laga',
+              '100 kemenangan kandang beruntun di liga',
+              'Mencetak 150 gol dalam semusim La Liga',
+            ],
+            answer: 'Sextuple pertama sepanjang sejarah (6 trofi)',
+            note: 'Barcelona menyapu bersih La Liga, Copa del Rey, Liga Champions UEFA, Piala Super Spanyol, Piala Super UEFA, dan Piala Dunia Antarklub FIFA—prestasi yang baru disamai Bayern Munich pada 2020.',
+          },
+          {
+            id: 'laliga-5',
+            league: 'LALIGA',
+            year: '2017–18',
+            question:
+              'Antara musim 2015–16 hingga 2018–19, kiper La Liga mana yang meraih empat Trofi Zamora berturut-turut untuk rasio kebobolan terendah di kasta tertinggi Spanyol?',
+            options: ['Jan Oblak', 'Marc-André ter Stegen', 'Keylor Navas', 'Thibaut Courtois'],
+            answer: 'Jan Oblak',
+            note: 'Kiper asal Slovenia Jan Oblak menjadi tembok utama pertahanan Atlético Madrid asuhan Diego Simeone, dan menyamai rekor lima Trofi Zamora milik Antoni Ramallets serta Víctor Valdés pada 2021.',
+          },
+          {
+            id: 'laliga-6',
+            league: 'LALIGA',
+            year: '2000–01',
+            question:
+              'Pada Juli 2000, presiden baru Real Madrid Florentino Pérez memulai era "Galácticos" dengan menebus klausul rekor dunia milik bintang Barcelona yang mana?',
+            options: ['Luís Figo', 'Rivaldo', 'Patrick Kluivert', 'Ronaldo Nazário'],
+            answer: 'Luís Figo',
+            note: 'Luís Figo melakukan kepindahan kontroversial senilai €62 juta langsung dari Camp Nou ke Santiago Bernabéu, meraih Ballon d\'Or 2000, dan membawa Madrid menjuarai La Liga 2000–01.',
+          },
+
+          // --- SERIE A (6) ---
+          {
+            id: 'seriea-1',
+            league: 'SERIEA',
+            year: '2000–01',
+            question:
+              'AS Roma merebut Scudetto ketiga mereka pada 2000–01 di bawah Fabio Capello. Penyerang tajam asal Argentina mana yang didatangkan dari Fiorentina musim panas itu dan mencetak 20 gol liga?',
+            options: ['Gabriel Batistuta', 'Hernán Crespo', 'Claudio López', 'Abel Balbo'],
+            answer: 'Gabriel Batistuta',
+            note: 'Setelah sembilan tahun setia bersama Fiorentina, "Batigol" akhirnya meraih gelar Serie A impiannya bersama Francesco Totti dan Vincenzo Montella dalam trisula maut Roma.',
+          },
+          {
+            id: 'seriea-2',
+            league: 'SERIEA',
+            year: '2009–10',
+            question:
+              'Inter Milan menjadi klub Italia pertama yang meraih treble kontinental pada 2009–10. Penyerang mana yang mencetak gol penentu gelar di Siena, gol kemenangan final Coppa Italia, dan dua gol final Liga Champions?',
+            options: ['Diego Milito', 'Samuel Eto\'o', 'Goran Pandev', 'Wesley Sneijder'],
+            answer: 'Diego Milito',
+            note: 'Dijuluki "Il Principe", Diego Milito selalu hadir di setiap momen krusial musim bersejarah José Mourinho dan menutup musim dengan total 30 gol di semua kompetisi.',
+          },
+          {
+            id: 'seriea-3',
+            league: 'SERIEA',
+            year: '2011–12',
+            question:
+              'Antonio Conte memulai dinasti sembilan gelar Serie A Juventus dengan rekor tak terkalahkan dalam 38 laga pada 2011–12. Playmaker mana yang datang gratis dari AC Milan musim panas itu untuk mengatur lini tengah?',
+            options: ['Andrea Pirlo', 'Clarence Seedorf', 'Gennaro Gattuso', 'Massimo Ambrosini'],
+            answer: 'Andrea Pirlo',
+            note: 'Dianggap habis di San Siro, Andrea Pirlo justru tampil memukau di Turin—memimpin daftar assist Serie A dengan 13 assist saat Juventus membukukan 23 kemenangan dan 15 hasil seri.',
+          },
+          {
+            id: 'seriea-4',
+            league: 'SERIEA',
+            year: '2022–23',
+            question:
+              'Napoli mengakhiri penantian 33 tahun untuk meraih Scudetto pada 2022–23 bersama Luciano Spalletti. Siapa yang keluar sebagai Capocannoniere Serie A dengan 26 gol?',
+            options: ['Victor Osimhen', 'Khvicha Kvaratskhelia', 'Lautaro Martínez', 'Rafael Leão'],
+            answer: 'Victor Osimhen',
+            note: 'Victor Osimhen mencetak gol penyama kedudukan di kandang Udinese yang memastikan gelar Scudetto secara matematis dan menjadi pemain Afrika pertama peraih Sepatu Emas Serie A.',
+          },
+          {
+            id: 'seriea-5',
+            league: 'SERIEA',
+            year: '2004–05',
+            question:
+              'Tiga tahun sebelum rekan setimnya Kaká mengangkat Ballon d\'Or 2007, legenda AC Milan mana yang memenangkan Ballon d\'Or 2004 setelah membawa Milan menjuarai Serie A?',
+            options: ['Andriy Shevchenko', 'Paolo Maldini', 'Filippo Inzaghi', 'Alessandro Nesta'],
+            answer: 'Andriy Shevchenko',
+            note: 'Andriy Shevchenko memuncaki daftar pencetak gol Serie A dengan 24 gol pada musim juara AC Milan 2003–04, mengungguli Deco dan Ronaldinho dalam pemungutan suara Ballon d\'Or 2004.',
+          },
+          {
+            id: 'seriea-6',
+            league: 'SERIEA',
+            year: '2015–16',
+            question:
+              'Pada 2015–16, penyerang Napoli Gonzalo Higuaín memecahkan rekor gol semusim Serie A milik Gunnar Nordahl yang bertahan 66 tahun. Berapa gol liga yang dicetak Higuaín?',
+            options: ['36', '34', '38', '35'],
+            answer: '36',
+            note: 'Higuaín menutup musim dengan hat-trick pada laga terakhir kontra Frosinone—ditutup gol salto indah—untuk mencapai 36 gol, rekor yang kemudian disamai Ciro Immobile pada 2019–20.',
+          },
+
+          // --- BUNDESLIGA (6) ---
+          {
+            id: 'bundesliga-1',
+            league: 'BUNDESLIGA',
+            year: '2023–24',
+            question:
+              'Bayer Leverkusen asuhan Xabi Alonso memutus dominasi 11 tahun Bayern Munich dengan menjadi klub pertama yang menjuarai Bundesliga tanpa kekalahan pada 2023–24. Bagaimana rekor liga mereka?',
+            options: ['28 menang, 6 seri', '30 menang, 4 seri', '27 menang, 7 seri', '29 menang, 5 seri'],
+            answer: '28 menang, 6 seri',
+            note: 'Leverkusen meraih 90 poin dari 28 kemenangan dan 6 hasil imbang, serta mencatat rekor Eropa 51 laga tak terkalahkan di semua kompetisi sebelum tumbang dari Atalanta di final Liga Europa.',
+          },
+          {
+            id: 'bundesliga-2',
+            league: 'BUNDESLIGA',
+            year: '2020–21',
+            question:
+              'Robert Lewandowski memecahkan rekor keramat 40 gol semusim Bundesliga milik Gerd Müller pada Mei 2021 melawan Augsburg. Pada menit ke berapa ia mencetak gol ke-41?',
+            options: ['Menit ke-90', 'Menit ke-45', 'Menit ke-78', 'Menit ke-62'],
+            answer: 'Menit ke-90',
+            note: 'Setelah berkali-kali digagalkan kiper sepanjang laga, Lewandowski menyambar bola muntah sepakan Leroy Sané pada menit ke-90 untuk mengakhiri musim dengan 41 gol hanya dalam 29 penampilan.',
+          },
+          {
+            id: 'bundesliga-3',
+            league: 'BUNDESLIGA',
+            year: '2011–12',
+            question:
+              'Borussia Dortmund asuhan Jürgen Klopp mempertahankan gelar Bundesliga 2011–12 lalu menghajar Bayern Munich 5–2 di Final DFB-Pokal berkat hat-trick dari penyerang yang mana?',
+            options: ['Robert Lewandowski', 'Lucas Barrios', 'Shinji Kagawa', 'Marco Reus'],
+            answer: 'Robert Lewandowski',
+            note: 'Hat-trick tajam Lewandowski ditambah gol Shinji Kagawa dan Mats Hummels mengunci gelar ganda liga dan piala pertama sepanjang sejarah Borussia Dortmund.',
+          },
+          {
+            id: 'bundesliga-4',
+            league: 'BUNDESLIGA',
+            year: '2008–09',
+            question:
+              'VfL Wolfsburg mengejutkan sepak bola Jerman dengan menjuarai Bundesliga 2008–09 di bawah Felix Magath. Berapa total gol liga gabungan duet maut Grafite dan Edin Džeko?',
+            options: ['54', '48', '42', '60'],
+            answer: '54',
+            note: 'Grafite mencetak 28 gol (termasuk gol tumit legendaris melawan Bayern Munich) dan Edin Džeko menyumbang 26 gol—total 54 gol yang memecahkan rekor duet Gerd Müller dan Uli Hoeneß.',
+          },
+          {
+            id: 'bundesliga-5',
+            league: 'BUNDESLIGA',
+            year: '2015–16',
+            question:
+              'Masuk dari bangku cadangan saat turun minum bagi Bayern Munich kontra Wolfsburg pada September 2015, Robert Lewandowski mencetak lima gol Bundesliga hanya dalam waktu berapa menit?',
+            options: ['9 menit', '14 menit', '12 menit', '7 menit'],
+            answer: '9 menit',
+            note: 'Mencetak lima gol antara menit ke-51 dan ke-60 (tepatnya 8 menit 59 detik), Lewandowski mengukir empat Rekor Dunia Guinness sekaligus, ditutup oleh tendangan voli gunting spektakuler.',
+          },
+          {
+            id: 'bundesliga-6',
+            league: 'BUNDESLIGA',
+            year: '2000–01',
+            question:
+              'Pada pekan terakhir 2000–01, Schalke 04 sudah berpesta empat menit sebelum Bayern Munich merebut gelar Bundesliga lewat tendangan bebas tidak langsung menit ke-94 di Hamburg. Siapa eksekutornya?',
+            options: ['Patrik Andersson', 'Stefan Effenberg', 'Giovane Élber', 'Mehmet Scholl'],
+            answer: 'Patrik Andersson',
+            note: 'Bek tengah asal Swedia Patrik Andersson menghujamkan sodoran Stefan Effenberg menembus pagar pemain Hamburg—satu-satunya gol Bundesliga-nya bagi Bayern—yang memupus impian Schalke.',
+          },
+
+          // --- LIGUE 1 (6) ---
+          {
+            id: 'ligue1-1',
+            league: 'LIGUE1',
+            year: '2001–08',
+            question:
+              'Dipimpin maestro tendangan bebas Juninho Pernambucano, Olympique Lyonnais mendominasi sepak bola Prancis era 2000-an dengan memenangkan berapa gelar Ligue 1 berturut-turut?',
+            options: ['7', '5', '6', '8'],
+            answer: '7',
+            note: 'Lyon merebut tujuh gelar Ligue 1 beruntun sejak 2001–02 hingga 2007–08—rekor terpanjang di Prancis kala itu—di bawah pelatih Jacques Santini, Paul Le Guen, Gérard Houllier, dan Alain Perrin.',
+          },
+          {
+            id: 'ligue1-2',
+            league: 'LIGUE1',
+            year: '2016–17',
+            question:
+              'AS Monaco yang super agresif asuhan Leonardo Jardim menumbangkan PSG untuk menjuarai Ligue 1 2016–17 dengan 107 gol. Penyerang 18 tahun mana yang mencuri perhatian dengan 15 gol liga?',
+            options: ['Kylian Mbappé', 'Ousmane Dembélé', 'Anthony Martial', 'Thomas Lemar'],
+            answer: 'Kylian Mbappé',
+            note: 'Bersama Radamel Falcao, Bernardo Silva, dan Fabinho, remaja Kylian Mbappé meledak di paruh kedua musim untuk menyabet Pemain Muda Terbaik Ligue 1 sebelum hijrah ke PSG.',
+          },
+          {
+            id: 'ligue1-3',
+            league: 'LIGUE1',
+            year: '2011–12',
+            question:
+              'Pada musim pertama era kepemilikan QSI di PSG, klub kuda hitam mana yang mengejutkan Paris dengan meraih gelar Ligue 1 perdana mereka pada 2011–12 berkat 21 gol Olivier Giroud?',
+            options: ['Montpellier HSC', 'Lille OSC', 'Girondins de Bordeaux', 'AS Saint-Étienne'],
+            answer: 'Montpellier HSC',
+            note: 'Dilatih René Girard dan ditopang ketajaman Olivier Giroud serta Younès Belhanda, Montpellier finis tiga poin di atas PSG asuhan Carlo Ancelotti untuk mencatat sejarah.',
+          },
+          {
+            id: 'ligue1-4',
+            league: 'LIGUE1',
+            year: '2020–21',
+            question:
+              'Lille OSC racikan Christophe Galtier mengungguli PSG dengan selisih satu poin untuk mengangkat trofi Ligue 1 2020–21. Penyerang veteran Turki berusia 35 tahun mana yang memimpin lini depan mereka dengan 16 gol?',
+            options: ['Burak Yılmaz', 'Hakan Çalhanoğlu', 'Cengiz Ünder', 'Yusuf Yazıcı'],
+            answer: 'Burak Yılmaz',
+            note: 'Didatangkan bebas transfer dari Beşiktaş, Burak Yılmaz mencetak gol-gol penentu di fase akhir—termasuk dua gol krusial saat Lille membalikkan keadaan menang 3–2 di kandang Lyon pada April 2021.',
+          },
+          {
+            id: 'ligue1-5',
+            league: 'LIGUE1',
+            year: '2017–18',
+            question:
+              'Pada Agustus 2017, Paris Saint-Germain memecahkan rekor transfer dunia dengan menebus klausul pelepasan Neymar dari Barcelona. Berapa nilai transfer fantastis tersebut?',
+            options: ['€222 juta', '€180 juta', '€200 juta', '€250 juta'],
+            answer: '€222 juta',
+            note: 'Transfer senilai €222 juta itu lebih dari dua kali lipat rekor dunia sebelumnya (€105 juta) saat Paul Pogba kembali ke Manchester United setahun sebelumnya.',
+          },
+          {
+            id: 'ligue1-6',
+            league: 'LIGUE1',
+            year: '2010–11',
+            question:
+              'Lille OSC asuhan Rudi Garcia meraih gelar ganda Ligue 1 dan Coupe de France pada 2010–11. Winger muda Belgia mana yang terpilih sebagai Pemain Terbaik Ligue 1 pada 2011 dan 2012?',
+            options: ['Eden Hazard', 'Kevin De Bruyne', 'Dries Mertens', 'Yannick Carrasco'],
+            answer: 'Eden Hazard',
+            note: 'Setelah menyabet Pemain Muda Terbaik pada 2009 dan 2010, Eden Hazard meraih penghargaan Pemain Terbaik Ligue 1 dua musim beruntun sebelum pindah ke Chelsea pada 2012.',
+          },
+        ];
+
+        /* =========================================================================
+           3. WEB AUDIO API STADIUM SOUND SYNTHESIZER (ZERO EXTERNAL AUDIO FILES)
+        ========================================================================= */
+        class StadiumAudio {
+          constructor() {
+            this.ctx = null;
+            this.muted = localStorage.getItem('pitch2000s_muted_v1') === 'true';
+          }
+
+          ensureContext() {
+            if (this.muted) return null;
+            if (!this.ctx) {
+              const AudioCtx = window.AudioContext || window.webkitAudioContext;
+              if (!AudioCtx) return null;
+              this.ctx = new AudioCtx();
+            }
+            if (this.ctx.state === 'suspended') {
+              this.ctx.resume().catch(() => {});
+            }
+            return this.ctx;
+          }
+
+          toggleMute() {
+            this.muted = !this.muted;
+            localStorage.setItem('pitch2000s_muted_v1', String(this.muted));
+            if (!this.muted) this.playClick();
+            return this.muted;
+          }
+
+          playClick() {
+            const ctx = this.ensureContext();
+            if (!ctx) return;
+            const now = ctx.currentTime;
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(620, now);
+            osc.frequency.exponentialRampToValueAtTime(240, now + 0.045);
+            gain.gain.setValueAtTime(0.06, now);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.048);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now);
+            osc.stop(now + 0.05);
+          }
+
+          playKickoff() {
+            const ctx = this.ensureContext();
+            if (!ctx) return;
+            const now = ctx.currentTime;
+            // Subtle referee pea-whistle tone (sine + gentle FM trill)
+            const carrier = ctx.createOscillator();
+            const lfo = ctx.createOscillator();
+            const lfoGain = ctx.createGain();
+            const gain = ctx.createGain();
+
+            carrier.type = 'sine';
+            carrier.frequency.setValueAtTime(2650, now);
+            lfo.type = 'sine';
+            lfo.frequency.setValueAtTime(34, now);
+            lfoGain.gain.setValueAtTime(85, now);
+
+            gain.gain.setValueAtTime(0.0001, now);
+            gain.gain.linearRampToValueAtTime(0.055, now + 0.03);
+            gain.gain.setValueAtTime(0.055, now + 0.24);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.34);
+
+            lfo.connect(lfoGain);
+            lfoGain.connect(carrier.frequency);
+            carrier.connect(gain);
+            gain.connect(ctx.destination);
+
+            carrier.start(now);
+            lfo.start(now);
+            carrier.stop(now + 0.36);
+            lfo.stop(now + 0.36);
+          }
+
+          playCorrect(streak) {
+            const ctx = this.ensureContext();
+            if (!ctx) return;
+            const now = ctx.currentTime;
+            const boost = Math.min(streak, 4) * 30;
+            const notes = [523.25 + boost, 659.25 + boost, 783.99 + boost];
+            notes.forEach((freq, idx) => {
+              const osc = ctx.createOscillator();
+              const gain = ctx.createGain();
+              osc.type = 'triangle';
+              const start = now + idx * 0.06;
+              osc.frequency.setValueAtTime(freq, start);
+              gain.gain.setValueAtTime(0.0001, start);
+              gain.gain.linearRampToValueAtTime(0.075, start + 0.015);
+              gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.26);
+              osc.connect(gain);
+              gain.connect(ctx.destination);
+              osc.start(start);
+              osc.stop(start + 0.28);
+            });
+          }
+
+          playWrong() {
+            const ctx = this.ensureContext();
+            if (!ctx) return;
+            const now = ctx.currentTime;
+            [210, 165].forEach((freq, idx) => {
+              const osc = ctx.createOscillator();
+              const gain = ctx.createGain();
+              osc.type = 'sawtooth';
+              const filter = ctx.createBiquadFilter();
+              filter.type = 'lowpass';
+              filter.frequency.setValueAtTime(520, now);
+
+              const start = now + idx * 0.09;
+              osc.frequency.setValueAtTime(freq, start);
+              gain.gain.setValueAtTime(0.06, start);
+              gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.16);
+
+              osc.connect(filter);
+              filter.connect(gain);
+              gain.connect(ctx.destination);
+              osc.start(start);
+              osc.stop(start + 0.18);
+            });
+          }
+
+          playTick() {
+            const ctx = this.ensureContext();
+            if (!ctx) return;
+            const now = ctx.currentTime;
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(880, now);
+            gain.gain.setValueAtTime(0.035, now);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now);
+            osc.stop(now + 0.045);
+          }
+
+          playVar() {
+            const ctx = this.ensureContext();
+            if (!ctx) return;
+            const now = ctx.currentTime;
+            [680, 920].forEach((freq, idx) => {
+              const osc = ctx.createOscillator();
+              const gain = ctx.createGain();
+              osc.type = 'sine';
+              const start = now + idx * 0.075;
+              osc.frequency.setValueAtTime(freq, start);
+              gain.gain.setValueAtTime(0.055, start);
+              gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.1);
+              osc.connect(gain);
+              gain.connect(ctx.destination);
+              osc.start(start);
+              osc.stop(start + 0.12);
+            });
+          }
+
+          playExtraTime() {
+            const ctx = this.ensureContext();
+            if (!ctx) return;
+            const now = ctx.currentTime;
+            [587.33, 880].forEach((freq, idx) => {
+              const osc = ctx.createOscillator();
+              const gain = ctx.createGain();
+              osc.type = 'triangle';
+              const start = now + idx * 0.08;
+              osc.frequency.setValueAtTime(freq, start);
+              gain.gain.setValueAtTime(0.065, start);
+              gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.18);
+              osc.connect(gain);
+              gain.connect(ctx.destination);
+              osc.start(start);
+              osc.stop(start + 0.2);
+            });
+          }
+
+          playFullTime() {
+            const ctx = this.ensureContext();
+            if (!ctx) return;
+            const now = ctx.currentTime;
+            const blasts = [
+              { offset: 0, dur: 0.12 },
+              { offset: 0.17, dur: 0.12 },
+              { offset: 0.34, dur: 0.34 },
+            ];
+            blasts.forEach(({ offset, dur }) => {
+              const osc = ctx.createOscillator();
+              const lfo = ctx.createOscillator();
+              const lfoGain = ctx.createGain();
+              const gain = ctx.createGain();
+
+              osc.type = 'sine';
+              osc.frequency.setValueAtTime(2720, now + offset);
+              lfo.frequency.setValueAtTime(32, now + offset);
+              lfoGain.gain.setValueAtTime(70, now + offset);
+
+              gain.gain.setValueAtTime(0.0001, now + offset);
+              gain.gain.linearRampToValueAtTime(0.048, now + offset + 0.02);
+              gain.gain.setValueAtTime(0.048, now + offset + dur - 0.03);
+              gain.gain.exponentialRampToValueAtTime(0.0001, now + offset + dur + 0.03);
+
+              lfo.connect(lfoGain);
+              lfoGain.connect(osc.frequency);
+              osc.connect(gain);
+              gain.connect(ctx.destination);
+
+              osc.start(now + offset);
+              lfo.start(now + offset);
+              osc.stop(now + offset + dur + 0.04);
+              lfo.stop(now + offset + dur + 0.04);
+            });
+          }
+        }
+
+        /* =========================================================================
+           4. APPLICATION STATE & UTILITIES
+        ========================================================================= */
+        const HIGH_SCORE_KEY = 'pitch2000s_high_score_v1';
+        const BASE_CLOCK_SECONDS = 15;
+        const EXTRA_TIME_SECONDS = 10;
+        const OPTION_LETTERS = ['A', 'B', 'C', 'D'];
+
+        const audio = new StadiumAudio();
+
+        const state = {
+          phase: 'READY', // 'READY' | 'PLAYING' | 'REVIEW' | 'SUMMARY'
+          selectedLeague: 'ALL',
+          matchMode: 'STANDARD', // 'STANDARD' (12 Qs for ALL) | 'ARCHIVE' (all 36 Qs)
+          deck: [],
+          currentIndex: 0,
+          currentOptions: [],
+          eliminatedIndices: new Set(),
+          score: 0,
+          highScore: parseInt(localStorage.getItem(HIGH_SCORE_KEY) || '0', 10) || 0,
+          beatRecordThisMatch: false,
+          streak: 0,
+          bestStreak: 0,
+          correctCount: 0,
+          answeredCount: 0,
+          lifelines: {
+            varUsed: false,
+            extraTimeUsed: false,
+          },
+          timer: {
+            rafId: null,
+            maxDuration: BASE_CLOCK_SECONDS,
+            remaining: BASE_CLOCK_SECONDS,
+            lastFrameTime: 0,
+            lastTickSecond: 6,
+            extraAddedOnThisQ: false,
+          },
+          matchLog: [],
+        };
+
+        // DOM references
+        const dom = {
+          brandHomeLink: document.getElementById('brandHomeLink'),
+          muteToggleBtn: document.getElementById('muteToggleBtn'),
+          soundOnIcon: document.getElementById('soundOnIcon'),
+          soundOffIcon: document.getElementById('soundOffIcon'),
+          muteLabel: document.getElementById('muteLabel'),
+          headerRestartBtn: document.getElementById('headerRestartBtn'),
+
+          fixtureProgressLabel: document.getElementById('fixtureProgressLabel'),
+          scoreDisplay: document.getElementById('scoreDisplay'),
+          pointsDeltaTag: document.getElementById('pointsDeltaTag'),
+          highScoreDisplay: document.getElementById('highScoreDisplay'),
+          newRecordTag: document.getElementById('newRecordTag'),
+          streakDisplay: document.getElementById('streakDisplay'),
+          multiplierDisplay: document.getElementById('multiplierDisplay'),
+          multSeg1: document.getElementById('multSeg1'),
+          multSeg2: document.getElementById('multSeg2'),
+          multSeg3: document.getElementById('multSeg3'),
+          accuracyDisplay: document.getElementById('accuracyDisplay'),
+          bestStreakDisplay: document.getElementById('bestStreakDisplay'),
+
+          lifelineVarBtn: document.getElementById('lifelineVarBtn'),
+          lifelineTimeBtn: document.getElementById('lifelineTimeBtn'),
+          varStatusText: document.getElementById('varStatusText'),
+          extraTimeStatusText: document.getElementById('extraTimeStatusText'),
+
+          competitionFilterList: document.getElementById('competitionFilterList'),
+
+          viewBriefing: document.getElementById('viewBriefing'),
+          briefingLeagueTag: document.getElementById('briefingLeagueTag'),
+          briefingCountTag: document.getElementById('briefingCountTag'),
+          briefingHeadline: document.getElementById('briefingHeadline'),
+          briefingDesc: document.getElementById('briefingDesc'),
+          briefingEmblemBox: document.getElementById('briefingEmblemBox'),
+          matchLengthWrap: document.getElementById('matchLengthWrap'),
+          modeStandardBtn: document.getElementById('modeStandardBtn'),
+          modeArchiveBtn: document.getElementById('modeArchiveBtn'),
+          kickoffBtn: document.getElementById('kickoffBtn'),
+
+          viewQuestion: document.getElementById('viewQuestion'),
+          qLeagueCrest: document.getElementById('qLeagueCrest'),
+          qLeagueName: document.getElementById('qLeagueName'),
+          qSeasonYear: document.getElementById('qSeasonYear'),
+          qCounterText: document.getElementById('qCounterText'),
+          qStakeValue: document.getElementById('qStakeValue'),
+          clockStatusLabel: document.getElementById('clockStatusLabel'),
+          clockDigits: document.getElementById('clockDigits'),
+          clockProgressBar: document.getElementById('clockProgressBar'),
+          clockFill: document.getElementById('clockFill'),
+          questionStem: document.getElementById('questionStem'),
+          optionsContainer: document.getElementById('optionsContainer'),
+          matchNoteBox: document.getElementById('matchNoteBox'),
+          noteVerdict: document.getElementById('noteVerdict'),
+          noteBody: document.getElementById('noteBody'),
+          nextQuestionBtn: document.getElementById('nextQuestionBtn'),
+          nextBtnLabel: document.getElementById('nextBtnLabel'),
+
+          viewSummary: document.getElementById('viewSummary'),
+          summaryCompetitionLabel: document.getElementById('summaryCompetitionLabel'),
+          summaryRatingTitle: document.getElementById('summaryRatingTitle'),
+          summaryVerdictCopy: document.getElementById('summaryVerdictCopy'),
+          summaryTrophyBox: document.getElementById('summaryTrophyBox'),
+          sumScore: document.getElementById('sumScore'),
+          sumAccuracy: document.getElementById('sumAccuracy'),
+          sumBestStreak: document.getElementById('sumBestStreak'),
+          sumCorrectCount: document.getElementById('sumCorrectCount'),
+          summaryMatchLog: document.getElementById('summaryMatchLog'),
+          summaryChangeCompBtn: document.getElementById('summaryChangeCompBtn'),
+          playAgainBtn: document.getElementById('playAgainBtn'),
+        };
+
+        function shuffle(arr) {
+          const copy = arr.slice();
+          for (let i = copy.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [copy[i], copy[j]] = [copy[j], copy[i]];
+          }
+          return copy;
+        }
+
+        function getCompetitionMeta(id) {
+          return COMPETITIONS.find((c) => c.id === id) || COMPETITIONS[0];
+        }
+
+        function getMultiplier(streak) {
+          if (streak >= 4) return 3;
+          if (streak >= 2) return 2;
+          return 1;
+        }
+
+        function buildMatchDeck(leagueId, matchMode) {
+          if (leagueId !== 'ALL') {
+            return shuffle(QUESTION_BANK.filter((q) => q.league === leagueId));
+          }
+          if (matchMode === 'ARCHIVE') {
+            return shuffle(QUESTION_BANK);
+          }
+          // Balanced 12-question fixture: 2 randomized questions per competition
+          const leagues = ['UCL', 'EPL', 'LALIGA', 'SERIEA', 'BUNDESLIGA', 'LIGUE1'];
+          const selected = [];
+          leagues.forEach((lg) => {
+            const pool = shuffle(QUESTION_BANK.filter((q) => q.league === lg));
+            selected.push(...pool.slice(0, 2));
+          });
+          return shuffle(selected);
+        }
+
+        function getManagerRating(accuracyPct) {
+          if (accuracyPct >= 95) {
+            return {
+              title: 'Legenda Tak Terkalahkan',
+              verdict:
+                'Penguasaan sempurna atas sejarah sepak bola Eropa abad ke-21. Daya ingatmu sejajar dengan musim tak terkalahkan dan peraih treble benua.',
+            };
+          }
+          if (accuracyPct >= 80) {
+            return {
+              title: 'Juara Liga Champions',
+              verdict:
+                'Tajam di bawah tekanan lampu stadion. Kamu menguasai final ikonik, generasi emas, dan kejutan liga domestik dengan presisi seorang juara.',
+            };
+          }
+          if (accuracyPct >= 60) {
+            return {
+              title: 'Ahli Taktik Eropa',
+              verdict:
+                'Wawasan sepak bola Eropa yang kuat dan konsisten. Rangkaian jawaban beruntun yang lebih panjang akan membawa trofi besar semakin dekat.',
+            };
+          }
+          if (accuracyPct >= 40) {
+            return {
+              title: 'Pelatih Magang',
+              verdict:
+                'Kilasan memori yang bagus di liga-liga top Eropa, meski beberapa momen penentu terlewat di masa tambahan waktu.',
+            };
+          }
+          return {
+            title: 'Pengamat Liga Tarkam',
+            verdict:
+              'Semangat dari pinggir lapangan luar biasa, tetapi arsip sejarah membuatmu terjebak offside. Pelajari catatan laga dan balas di leg kedua.',
+          };
+        }
+
+        /* =========================================================================
+           5. TIMER ENGINE (COMPOSITOR-ONLY SCALE-X, ZERO LAYOUT THRASH)
+        ========================================================================= */
+        function stopClock() {
+          if (state.timer.rafId !== null) {
+            cancelAnimationFrame(state.timer.rafId);
+            state.timer.rafId = null;
+          }
+        }
+
+        function renderClockVisual() {
+          const rem = Math.max(0, state.timer.remaining);
+          const ratio = Math.min(1, Math.max(0, rem / state.timer.maxDuration));
+          const isUrgent = rem <= 5.0;
+
+          dom.clockDigits.textContent = `${rem.toFixed(1)} dtk`;
+          dom.clockFill.style.transform = `scaleX(${ratio})`;
+          dom.clockProgressBar.setAttribute('aria-valuenow', rem.toFixed(1));
+          dom.clockProgressBar.setAttribute('aria-valuemax', String(state.timer.maxDuration));
+
+          dom.clockFill.classList.toggle('urgent', isUrgent);
+          dom.clockDigits.classList.toggle('urgent', isUrgent);
+
+          if (state.phase === 'PLAYING') {
+            if (isUrgent) {
+              dom.clockStatusLabel.textContent = '5 DETIK TERAKHIR · PUTUSKAN SEKARANG';
+              dom.clockStatusLabel.className = 'clock-status-text urgent';
+            } else if (state.timer.extraAddedOnThisQ) {
+              dom.clockStatusLabel.textContent = 'TAMBAHAN WAKTU AKTIF (+10d)';
+              dom.clockStatusLabel.className = 'clock-status-text extra';
+            } else {
+              dom.clockStatusLabel.textContent = 'WAKTU BERJALAN';
+              dom.clockStatusLabel.className = 'clock-status-text';
+            }
+          }
+        }
+
+        function startClock() {
+          stopClock();
+          state.timer.maxDuration = BASE_CLOCK_SECONDS;
+          state.timer.remaining = BASE_CLOCK_SECONDS;
+          state.timer.lastFrameTime = performance.now();
+          state.timer.lastTickSecond = 6;
+          state.timer.extraAddedOnThisQ = false;
+          renderClockVisual();
+
+          const step = (now) => {
+            if (state.phase !== 'PLAYING') return;
+            const dt = (now - state.timer.lastFrameTime) / 1000;
+            state.timer.lastFrameTime = now;
+            state.timer.remaining = Math.max(0, state.timer.remaining - dt);
+
+            const ceilSec = Math.ceil(state.timer.remaining);
+            if (ceilSec <= 5 && ceilSec >= 1 && ceilSec < state.timer.lastTickSecond) {
+              state.timer.lastTickSecond = ceilSec;
+              audio.playTick();
+            }
+
+            renderClockVisual();
+
+            if (state.timer.remaining <= 0) {
+              stopClock();
+              handleTimeExpired();
+              return;
+            }
+            state.timer.rafId = requestAnimationFrame(step);
+          };
+
+          state.timer.rafId = requestAnimationFrame(step);
+        }
+
+        /* =========================================================================
+           6. RENDERING & UI SYNC
+        ========================================================================= */
+        function syncMuteUI() {
+          dom.muteToggleBtn.setAttribute('aria-pressed', String(audio.muted));
+          dom.soundOnIcon.classList.toggle('hidden', audio.muted);
+          dom.soundOffIcon.classList.toggle('hidden', !audio.muted);
+          dom.muteLabel.textContent = audio.muted ? 'Bisu' : 'Suara Aktif';
+        }
+
+        function renderCompetitionFilters() {
+          dom.competitionFilterList.innerHTML = '';
+          COMPETITIONS.forEach((comp) => {
+            const count =
+              comp.id === 'ALL'
+                ? QUESTION_BANK.length
+                : QUESTION_BANK.filter((q) => q.league === comp.id).length;
+
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = `filter-btn${state.selectedLeague === comp.id ? ' active' : ''}`;
+            btn.setAttribute('aria-pressed', String(state.selectedLeague === comp.id));
+            btn.innerHTML = `
+              <span class="filter-btn-left">
+                <span class="league-crest" aria-hidden="true">${LEAGUE_SVGS[comp.id]}</span>
+                <span class="filter-label">${comp.name}</span>
+              </span>
+              <span class="filter-count tabular">${String(count).padStart(2, '0')}</span>
+            `;
+            btn.addEventListener('click', () => {
+              audio.playClick();
+              selectCompetition(comp.id);
+            });
+            dom.competitionFilterList.appendChild(btn);
+          });
+        }
+
+        function syncScoreboard() {
+          dom.scoreDisplay.textContent = state.score.toLocaleString('id-ID');
+          dom.highScoreDisplay.textContent = state.highScore.toLocaleString('id-ID');
+          dom.newRecordTag.classList.toggle('hidden', !state.beatRecordThisMatch);
+
+          dom.streakDisplay.textContent = String(state.streak);
+          dom.bestStreakDisplay.textContent = String(state.bestStreak);
+
+          const mult = getMultiplier(state.streak);
+          dom.multiplierDisplay.textContent = `${mult}x`;
+          dom.multiplierDisplay.className = `multiplier-readout tabular${
+            mult === 3 ? ' tier-3' : mult === 2 ? ' tier-2' : ''
+          }`;
+
+          dom.multSeg1.className = 'mult-seg active-1';
+          dom.multSeg2.className = `mult-seg${mult >= 2 ? ' active-2' : ''}`;
+          dom.multSeg3.className = `mult-seg${mult >= 3 ? ' active-3' : ''}`;
+
+          if (state.answeredCount === 0) {
+            dom.accuracyDisplay.textContent = '—';
+          } else {
+            const acc = Math.round((state.correctCount / state.answeredCount) * 100);
+            dom.accuracyDisplay.textContent = `${acc}%`;
+          }
+
+          if (state.phase === 'READY') {
+            dom.fixtureProgressLabel.textContent = 'PRA-LAGA';
+          } else if (state.phase === 'SUMMARY') {
+            dom.fixtureProgressLabel.textContent = 'WAKTU PENUH';
+          } else {
+            const cur = String(state.currentIndex + 1).padStart(2, '0');
+            const tot = String(state.deck.length).padStart(2, '0');
+            dom.fixtureProgressLabel.textContent = `SOAL ${cur} / ${tot}`;
+          }
+        }
+
+        function syncLifelines() {
+          const playing = state.phase === 'PLAYING';
+          dom.lifelineVarBtn.disabled = !playing || state.lifelines.varUsed;
+          dom.lifelineTimeBtn.disabled = !playing || state.lifelines.extraTimeUsed;
+
+          dom.varStatusText.textContent = state.lifelines.varUsed ? 'TERPAKAI' : 'SIAP';
+          dom.extraTimeStatusText.textContent = state.lifelines.extraTimeUsed ? 'TERPAKAI' : 'SIAP';
+        }
+
+        function showView(viewName) {
+          dom.viewBriefing.classList.toggle('hidden', viewName !== 'READY');
+          dom.viewQuestion.classList.toggle('hidden', viewName !== 'PLAYING' && viewName !== 'REVIEW');
+          dom.viewSummary.classList.toggle('hidden', viewName !== 'SUMMARY');
+        }
+
+        function renderBriefing() {
+          const comp = getCompetitionMeta(state.selectedLeague);
+          const isAll = comp.id === 'ALL';
+          const count = isAll
+            ? state.matchMode === 'ARCHIVE'
+              ? QUESTION_BANK.length
+              : 12
+            : QUESTION_BANK.filter((q) => q.league === comp.id).length;
+
+          dom.briefingLeagueTag.textContent = comp.name.toUpperCase();
+          dom.briefingCountTag.textContent = `LAGA ${count} PERTANYAAN`;
+          dom.briefingHeadline.textContent = comp.headline;
+          dom.briefingDesc.textContent = comp.desc;
+          dom.briefingEmblemBox.innerHTML = LEAGUE_SVGS[comp.id];
+
+          dom.matchLengthWrap.classList.toggle('hidden', !isAll);
+          dom.modeStandardBtn.classList.toggle('active', state.matchMode === 'STANDARD');
+          dom.modeArchiveBtn.classList.toggle('active', state.matchMode === 'ARCHIVE');
+        }
+
+        function renderCurrentQuestion() {
+          const q = state.deck[state.currentIndex];
+          const comp = getCompetitionMeta(q.league);
+          const mult = getMultiplier(state.streak);
+
+          state.currentOptions = shuffle(q.options);
+          state.eliminatedIndices = new Set();
+
+          dom.qLeagueCrest.innerHTML = LEAGUE_SVGS[q.league];
+          dom.qLeagueName.textContent = comp.name;
+          dom.qSeasonYear.textContent = q.year;
+
+          const curStr = String(state.currentIndex + 1).padStart(2, '0');
+          const totStr = String(state.deck.length).padStart(2, '0');
+          dom.qCounterText.textContent = `Soal ${curStr} / ${totStr}`;
+          dom.qStakeValue.textContent = `+${100 * mult} POIN (${mult}x)`;
+
+          dom.questionStem.textContent = q.question;
+          dom.matchNoteBox.classList.add('hidden');
+          dom.pointsDeltaTag.textContent = '';
+
+          dom.optionsContainer.innerHTML = '';
+          state.currentOptions.forEach((optText, idx) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'option-btn';
+            btn.dataset.index = String(idx);
+            btn.innerHTML = `
+              <span class="option-left">
+                <span class="option-key">${OPTION_LETTERS[idx]}</span>
+                <span class="option-text">${optText}</span>
+              </span>
+              <span class="option-flag" aria-hidden="true"></span>
+            `;
+            btn.addEventListener('click', () => handleAnswerSelect(idx));
+            dom.optionsContainer.appendChild(btn);
+          });
+
+          syncScoreboard();
+          syncLifelines();
+          startClock();
+        }
+
+        /* =========================================================================
+           7. GAMEPLAY FLOW & LIFELINE ACTIONS
+        ========================================================================= */
+        function resetToBriefing() {
+          stopClock();
+          state.phase = 'READY';
+          state.score = 0;
+          state.beatRecordThisMatch = false;
+          state.streak = 0;
+          state.bestStreak = 0;
+          state.correctCount = 0;
+          state.answeredCount = 0;
+          state.lifelines.varUsed = false;
+          state.lifelines.extraTimeUsed = false;
+          state.matchLog = [];
+          dom.pointsDeltaTag.textContent = '';
+
+          showView('READY');
+          renderBriefing();
+          renderCompetitionFilters();
+          syncScoreboard();
+          syncLifelines();
+        }
+
+        function selectCompetition(leagueId) {
+          state.selectedLeague = leagueId;
+          resetToBriefing();
+        }
+
+        function startMatch() {
+          stopClock();
+          state.deck = buildMatchDeck(state.selectedLeague, state.matchMode);
+          state.currentIndex = 0;
+          state.score = 0;
+          state.beatRecordThisMatch = false;
+          state.streak = 0;
+          state.bestStreak = 0;
+          state.correctCount = 0;
+          state.answeredCount = 0;
+          state.lifelines.varUsed = false;
+          state.lifelines.extraTimeUsed = false;
+          state.matchLog = [];
+          state.phase = 'PLAYING';
+
+          audio.playKickoff();
+          showView('PLAYING');
+          renderCurrentQuestion();
+        }
+
+        function updateHighScoreIfNeeded() {
+          if (state.score > state.highScore) {
+            state.highScore = state.score;
+            state.beatRecordThisMatch = true;
+            localStorage.setItem(HIGH_SCORE_KEY, String(state.highScore));
+          }
+        }
+
+        function handleAnswerSelect(selectedIdx) {
+          if (state.phase !== 'PLAYING') return;
+          if (state.eliminatedIndices.has(selectedIdx)) return;
+
+          stopClock();
+          state.phase = 'REVIEW';
+          state.answeredCount += 1;
+
+          const q = state.deck[state.currentIndex];
+          const chosenText = state.currentOptions[selectedIdx];
+          const isCorrect = chosenText === q.answer;
+          const correctIdx = state.currentOptions.indexOf(q.answer);
+
+          let earnedPoints = 0;
+          if (isCorrect) {
+            const activeMult = getMultiplier(state.streak);
+            const speedBonus = Math.round((Math.min(state.timer.remaining, BASE_CLOCK_SECONDS) / BASE_CLOCK_SECONDS) * 50);
+            earnedPoints = (100 + speedBonus) * activeMult;
+            state.score += earnedPoints;
+            state.streak += 1;
+            state.bestStreak = Math.max(state.bestStreak, state.streak);
+            state.correctCount += 1;
+            updateHighScoreIfNeeded();
+            audio.playCorrect(state.streak);
+            dom.pointsDeltaTag.textContent = `+${earnedPoints}`;
+          } else {
+            state.streak = 0;
+            audio.playWrong();
+            dom.pointsDeltaTag.textContent = '';
+          }
+
+          state.matchLog.push({
+            league: q.league,
+            year: q.year,
+            question: q.question,
+            answer: q.answer,
+            status: isCorrect ? 'CORRECT' : 'MISSED',
+          });
+
+          revealAnswerState(selectedIdx, correctIdx, isCorrect, false, earnedPoints, q.note);
+        }
+
+        function handleTimeExpired() {
+          if (state.phase !== 'PLAYING') return;
+          state.phase = 'REVIEW';
+          state.answeredCount += 1;
+          state.streak = 0;
+          audio.playWrong();
+          dom.pointsDeltaTag.textContent = '';
+
+          const q = state.deck[state.currentIndex];
+          const correctIdx = state.currentOptions.indexOf(q.answer);
+
+          state.matchLog.push({
+            league: q.league,
+            year: q.year,
+            question: q.question,
+            answer: q.answer,
+            status: 'TIMEOUT',
+          });
+
+          dom.clockStatusLabel.textContent = 'WAKTU HABIS';
+          dom.clockStatusLabel.className = 'clock-status-text urgent';
+          revealAnswerState(-1, correctIdx, false, true, 0, q.note);
+        }
+
+        function revealAnswerState(selectedIdx, correctIdx, isCorrect, isTimeout, earnedPoints, noteText) {
+          const buttons = dom.optionsContainer.querySelectorAll('.option-btn');
+          buttons.forEach((btn, idx) => {
+            btn.disabled = true;
+            const flagEl = btn.querySelector('.option-flag');
+            if (idx === correctIdx) {
+              btn.classList.add('state-correct');
+              flagEl.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span>${isCorrect ? 'Benar' : 'Jawaban Benar'}</span>`;
+            } else if (idx === selectedIdx && !isCorrect) {
+              btn.classList.add('state-wrong');
+              flagEl.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Salah</span>`;
+            } else if (!state.eliminatedIndices.has(idx)) {
+              btn.classList.add('state-dimmed');
+            }
+          });
+
+          dom.matchNoteBox.classList.remove('hidden', 'outcome-correct', 'outcome-wrong');
+          if (isCorrect) {
+            dom.matchNoteBox.classList.add('outcome-correct');
+            dom.noteVerdict.className = 'note-verdict correct';
+            dom.noteVerdict.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span>Gol Tercipta · +${earnedPoints} POIN</span>`;
+          } else if (isTimeout) {
+            dom.matchNoteBox.classList.add('outcome-wrong');
+            dom.noteVerdict.className = 'note-verdict wrong';
+            dom.noteVerdict.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>Waktu Habis · Beruntun Terputus</span>`;
+          } else {
+            dom.matchNoteBox.classList.add('outcome-wrong');
+            dom.noteVerdict.className = 'note-verdict wrong';
+            dom.noteVerdict.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Melenceng · Beruntun Terputus</span>`;
+          }
+
+          dom.noteBody.textContent = noteText;
+
+          const isLast = state.currentIndex >= state.deck.length - 1;
+          dom.nextBtnLabel.textContent = isLast ? 'Laporan Waktu Penuh' : 'Pertanyaan Berikutnya';
+
+          syncScoreboard();
+          syncLifelines();
+        }
+
+        function advanceQuestion() {
+          if (state.phase !== 'REVIEW') return;
+          audio.playClick();
+          if (state.currentIndex >= state.deck.length - 1) {
+            renderSummary();
+          } else {
+            state.currentIndex += 1;
+            state.phase = 'PLAYING';
+            renderCurrentQuestion();
+          }
+        }
+
+        function useVarLifeline() {
+          if (state.phase !== 'PLAYING' || state.lifelines.varUsed) return;
+          const q = state.deck[state.currentIndex];
+          const wrongIndices = state.currentOptions
+            .map((opt, idx) => (opt !== q.answer ? idx : -1))
+            .filter((idx) => idx !== -1);
+
+          const toEliminate = shuffle(wrongIndices).slice(0, 2);
+          toEliminate.forEach((idx) => state.eliminatedIndices.add(idx));
+          state.lifelines.varUsed = true;
+          audio.playVar();
+
+          const buttons = dom.optionsContainer.querySelectorAll('.option-btn');
+          toEliminate.forEach((idx) => {
+            const btn = buttons[idx];
+            if (btn) {
+              btn.disabled = true;
+              btn.classList.add('eliminated');
+              const flag = btn.querySelector('.option-flag');
+              if (flag) flag.textContent = 'DICORET VAR';
+            }
+          });
+
+          syncLifelines();
+        }
+
+        function useExtraTimeLifeline() {
+          if (state.phase !== 'PLAYING' || state.lifelines.extraTimeUsed) return;
+          state.lifelines.extraTimeUsed = true;
+          state.timer.remaining += EXTRA_TIME_SECONDS;
+          state.timer.maxDuration = Math.max(state.timer.maxDuration, state.timer.remaining);
+          state.timer.lastTickSecond = Math.max(6, Math.ceil(state.timer.remaining));
+          state.timer.extraAddedOnThisQ = true;
+          audio.playExtraTime();
+
+          renderClockVisual();
+          syncLifelines();
+        }
+
+        function renderSummary() {
+          stopClock();
+          state.phase = 'SUMMARY';
+          audio.playFullTime();
+          showView('SUMMARY');
+          syncScoreboard();
+          syncLifelines();
+
+          const total = state.deck.length;
+          const accuracy = total > 0 ? Math.round((state.correctCount / total) * 100) : 0;
+          const rating = getManagerRating(accuracy);
+          const comp = getCompetitionMeta(state.selectedLeague);
+
+          dom.summaryCompetitionLabel.textContent = `Laporan Waktu Penuh · ${comp.name}`;
+          dom.summaryRatingTitle.textContent = rating.title;
+          dom.summaryVerdictCopy.textContent = rating.verdict;
+          dom.summaryTrophyBox.innerHTML = TROPHY_SVG;
+
+          dom.sumScore.textContent = state.score.toLocaleString('id-ID');
+          dom.sumAccuracy.textContent = `${accuracy}%`;
+          dom.sumBestStreak.textContent = String(state.bestStreak);
+          dom.sumCorrectCount.textContent = `${state.correctCount} / ${total}`;
+
+          dom.summaryMatchLog.innerHTML = '';
+          state.matchLog.forEach((entry) => {
+            const compMeta = getCompetitionMeta(entry.league);
+            const row = document.createElement('div');
+            row.className = 'log-row';
+            const statusClass = entry.status === 'CORRECT' ? 'ok' : 'miss';
+            const statusText =
+              entry.status === 'CORRECT' ? 'BENAR' : entry.status === 'TIMEOUT' ? 'HABIS' : 'SALAH';
+            row.innerHTML = `
+              <span class="log-meta tabular">${compMeta.short} · ${entry.year.slice(0, 4)}</span>
+              <span class="log-question" title="${entry.question.replace(/"/g, '&quot;')}">
+                <strong>${entry.answer}</strong> — ${entry.question}
+              </span>
+              <span class="log-status ${statusClass}">${statusText}</span>
+            `;
+            dom.summaryMatchLog.appendChild(row);
+          });
+        }
+
+        /* =========================================================================
+           8. EVENT WIRING & KEYBOARD SHORTCUTS
+        ========================================================================= */
+        dom.muteToggleBtn.addEventListener('click', () => {
+          audio.toggleMute();
+          syncMuteUI();
+        });
+
+        dom.headerRestartBtn.addEventListener('click', () => {
+          audio.playClick();
+          resetToBriefing();
+        });
+
+        dom.brandHomeLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          audio.playClick();
+          resetToBriefing();
+        });
+
+        dom.modeStandardBtn.addEventListener('click', () => {
+          audio.playClick();
+          state.matchMode = 'STANDARD';
+          renderBriefing();
+        });
+
+        dom.modeArchiveBtn.addEventListener('click', () => {
+          audio.playClick();
+          state.matchMode = 'ARCHIVE';
+          renderBriefing();
+        });
+
+        dom.kickoffBtn.addEventListener('click', () => startMatch());
+        dom.nextQuestionBtn.addEventListener('click', () => advanceQuestion());
+        dom.playAgainBtn.addEventListener('click', () => startMatch());
+        dom.summaryChangeCompBtn.addEventListener('click', () => {
+          audio.playClick();
+          resetToBriefing();
+        });
+
+        dom.lifelineVarBtn.addEventListener('click', () => useVarLifeline());
+        dom.lifelineTimeBtn.addEventListener('click', () => useExtraTimeLifeline());
+
+        document.addEventListener('keydown', (e) => {
+          if (e.metaKey || e.ctrlKey || e.altKey) return;
+          const key = e.key.toLowerCase();
+
+          if (key === 'm') {
+            audio.toggleMute();
+            syncMuteUI();
+            return;
+          }
+
+          if (state.phase === 'READY' && (key === 'enter' || key === ' ')) {
+            if (document.activeElement && document.activeElement.tagName === 'BUTTON') return;
+            e.preventDefault();
+            startMatch();
+            return;
+          }
+
+          if (state.phase === 'PLAYING') {
+            const keyMap = { '1': 0, a: 0, '2': 1, b: 1, '3': 2, c: 2, '4': 3, d: 3 };
+            if (key in keyMap) {
+              e.preventDefault();
+              handleAnswerSelect(keyMap[key]);
+              return;
+            }
+            if (key === 'v') {
+              e.preventDefault();
+              useVarLifeline();
+              return;
+            }
+            if (key === 'e') {
+              e.preventDefault();
+              useExtraTimeLifeline();
+              return;
+            }
+          }
+
+          if (state.phase === 'REVIEW' && (key === 'enter' || key === ' ')) {
+            e.preventDefault();
+            advanceQuestion();
+            return;
+          }
+
+          if (state.phase === 'SUMMARY' && (key === 'enter' || key === ' ')) {
+            if (document.activeElement && document.activeElement.tagName === 'BUTTON') return;
+            e.preventDefault();
+            startMatch();
+          }
+        });
+
+        /* =========================================================================
+           9. INITIAL BOOTSTRAP
+        ========================================================================= */
+        syncMuteUI();
+        renderCompetitionFilters();
+        renderBriefing();
+        syncScoreboard();
+        syncLifelines();
+        showView('READY');
+      })();
+    </script>
+  </body>
+</html>
